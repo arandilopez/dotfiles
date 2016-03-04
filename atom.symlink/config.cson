@@ -32,6 +32,7 @@
     fontFamily: "Menlo"
     invisibles: {}
     showIndentGuide: true
+    showInvisibles: true
     softWrapAtPreferredLineLength: true
   "go-plus":
     goPath: "/Users/holman/Code/go"
