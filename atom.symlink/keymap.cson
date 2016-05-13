@@ -1,2 +1,8 @@
 '.editor:not(.mini)':
   'ctrl-cmd-i': 'editor:auto-indent'
+
+'atom-workspace atom-text-editor:not([mini])':
+  'cmd-ctrl-shift-up': 'editor:add-selection-above'
+
+'atom-workspace atom-text-editor:not([mini])':
+  'cmd-ctrl-shift-down': 'editor:add-selection-below'
