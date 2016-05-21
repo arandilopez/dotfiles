@@ -29,7 +29,7 @@
       "one-dark-syntax"
     ]
   editor:
-    fontFamily: "Menlo"
+    fontFamily: "Fira Mono"
     invisibles: {}
     showIndentGuide: true
     showInvisibles: true
@@ -48,3 +48,7 @@
     ]
   welcome:
     showOnStartup: false
+".blade.html.php.text":
+  editor:
+    commentEnd: " --}}"
+    commentStart: "{{-- "
