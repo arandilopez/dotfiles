@@ -34,3 +34,7 @@
 
 [credential]
 helper = /opt/boxen/bin/boxen-git-credential
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	required = true
+	clean = git-lfs clean -- %f
