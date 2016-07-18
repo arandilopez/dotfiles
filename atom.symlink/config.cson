@@ -24,6 +24,7 @@
       "tmp"
       "vendor"
     ]
+    projectHome: "/Users/arandilopez/Code"
     themes: [
       "nucleus-dark-ui"
       "one-dark-syntax"
