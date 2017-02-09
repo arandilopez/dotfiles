@@ -1,11 +1,15 @@
 "*":
   "atom-autocomplete-php":
     binComposer: "/Users/arandilopez/.bin/composer"
-    binPhp: "/usr/bin/php"
+    binPhp: "/opt/boxen/homebrew/bin/php"
     verboseErrors: true
   "autocomplete-php":
-    executablePath: "/usr/bin/php"
+    executablePath: "/opt/boxen/homebrew/bin/php"
   "autocomplete-plus": {}
+  "autocomplete-python":
+    pythonPaths: "/Users/arandilopez/.anacoda/bin"
+    useKite: false
+    useSnippets: "required"
   autosave:
     enabled: true
   core:
@@ -13,6 +17,7 @@
       "background-tips"
       "exception-reporting"
       "metrics"
+      "atom-typescript"
     ]
     followSymlinks: false
     hideGitIgnoredFiles: true
@@ -22,12 +27,12 @@
       "log"
       "repositories"
       "tmp"
-      "vendor"
     ]
     projectHome: "/Users/arandilopez/Code"
+    telemetryConsent: "limited"
     themes: [
       "nucleus-dark-ui"
-      "one-dark-syntax"
+      "dracula-theme"
     ]
   editor:
     fontFamily: "Fira Mono"
@@ -37,8 +42,25 @@
     softWrapAtPreferredLineLength: true
   "go-plus":
     goPath: "/Users/holman/Code/go"
+  latex:
+    enableShellEscape: true
+    opener: "pdf-view"
+  "linter-gcc":
+    gccDefaultCFlags: "-c -Wall -fsyntax-only"
+    gccDefaultCppFlags: "-c -Wall -std=c++11 -fsyntax-only"
+    gccErrorLimit: -1
+  "linter-jshint":
+    disableWhenNoJshintrcFileInPath: true
+    lintInlineJavaScript: true
+    lintJSXFiles: true
   "linter-php":
-    executablePath: "/usr/bin/php"
+    executablePath: "/opt/boxen/homebrew/bin/php"
+  "linter-pycodestyle":
+    executablePath: "pep8"
+    maxLineLength: 120
+  "markdown-pdf":
+    format: "Letter"
+    orientation: "landscape"
   "release-notes":
     viewedVersion: "0.89.0"
   "spell-check":
@@ -47,6 +69,12 @@
       "source.gfm"
       "text.git-commit"
     ]
+  "tree-view":
+    hideIgnoredNames: true
+  wakatime:
+    apikey: "Saved in your ~/.wakatime.cfg file"
+  "wakatime-hidden":
+    lastInit: 1486656491
   welcome:
     showOnStartup: false
 ".blade.html.php.text":
