@@ -21,6 +21,6 @@
 #
 #   cd "$GOPATH/src/github.com/$1"
 #
-if [ ! -z "$1" ] && [ -s "$PROJECTS/$1" ]; then
-  cd "$PROJECTS/$1"
+if [ ! -z "$1" ] && [ -s "$PROJECTS_RAILS/$1" ]; then
+  cd "$PROJECTS_RAILS/$1"
 fi

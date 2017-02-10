@@ -1,4 +1,4 @@
 #compdef c
-_files -W $PROJECTS -/
+_files -W $PROJECT_RAILS -/
 
 # See further documentation in `functions/c`.
