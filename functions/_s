@@ -1,4 +1,3 @@
-#compdef c
-_files -W $PROJECT_RAILS -/
-
-# See further documentation in `functions/c`.
+#compdef s
+_files -W $PROJECTS_RAILS -/
+# See further documentation in `functions/s`.

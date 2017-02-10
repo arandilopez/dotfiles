@@ -18,7 +18,7 @@ trap 'abort' 0
 
 set -e
 ## Start script
-
+cd $PROJECTS
 PROJECTNAME=$1
 laravel new $PROJECTNAME
 cd $PROJECTNAME
@@ -27,7 +27,7 @@ git add .
 git commit -m "Initial commit."
 # open "http://$PROJECTNAME.dev"
 echo "***********************"
-echo "You're ready to go! Remember to cd into $PROJECTNAME before you start editing."
+echo "You're ready to go!"
 
 # End script; disable error handling
 trap : 0

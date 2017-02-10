@@ -1,7 +1,7 @@
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/.dotfiles
 
-# your project folder that we can `c [tab]` to
+# your project folder that we can `c\s [tab]` to
 export PROJECTS=~/Code
 export PROJECTS_RAILS=~/src
 
@@ -44,5 +44,5 @@ unset config_files
 [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/arandilopez/.sdkman"
-[[ -s "/Users/arandilopez/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/arandilopez/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

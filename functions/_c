@@ -1,4 +1,3 @@
 #compdef c
 _files -W $PROJECTS -/
-
 # See further documentation in `functions/c`.
