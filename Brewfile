@@ -12,22 +12,30 @@ brew 'jp2a'
 brew 'libcaca', args: ['with-imlib2']
 brew 'libgit2'
 brew 'openssl'
-brew 'node'
+
+brew 'mysql'
+
+brew 'php71'
+
+# brew 'node'
+brew 'nodenv'
+
 brew 'readline'
+
 brew 'ruby-build'
 brew 'rbenv'
+
 brew 'roundup'
 brew 'spaceman-diff'
 brew 'spark'
 brew 'unrar'
 brew 'wget'
+brew 'zsh'
 brew 'youtube-dl'
 
-cask '1password'
-cask 'adium'
-cask 'garmin-express'
-cask 'handbrake'
-cask 'seashore'
-cask 'slack'
-cask 'transmission'
-cask 'tunnelbear'
+brew 'hub'
+brew 'git'
+
+brew 'heroku'
+
+cask 'java'
