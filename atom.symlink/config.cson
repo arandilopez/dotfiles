@@ -1,7 +1,8 @@
 "*":
   "atom-autocomplete-php":
     binComposer: "/Users/arandilopez/.bin/composer"
-    binPhp: "/opt/boxen/homebrew/bin/php"
+    binPhp: "/usr/local/bin/php"
+    insertNewlinesForUseStatements: true
     verboseErrors: true
   "autocomplete-php":
     executablePath: "/opt/boxen/homebrew/bin/php"
@@ -54,7 +55,7 @@
     lintInlineJavaScript: true
     lintJSXFiles: true
   "linter-php":
-    executablePath: "/opt/boxen/homebrew/bin/php"
+    executablePath: "/usr/local/bin/php"
   "linter-pycodestyle":
     executablePath: "pep8"
     maxLineLength: 120

@@ -15,7 +15,6 @@
         branch = auto
         ui = true
 [core]
-        excludesfile = /opt/boxen/config/git/gitignore
         editor = vim
 [apply]
         whitespace = nowarn
@@ -33,10 +32,12 @@
         default = simple
 
 [credential]
-helper = /opt/boxen/bin/boxen-git-credential
+	helper = osxkeychain
 [filter "lfs"]
 	smudge = git-lfs smudge -- %f
 	required = true
 	clean = git-lfs clean -- %f
 [user]
 	name = Arandi López
+[github]
+	user = arandilopez
