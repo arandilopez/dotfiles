@@ -1,0 +1,5 @@
+#!/bin/sh
+#
+#  Clean repo
+#
+git clean -df && git checkout -- .
