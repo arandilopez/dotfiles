@@ -5,7 +5,7 @@
     insertNewlinesForUseStatements: true
     verboseErrors: true
   "autocomplete-php":
-    executablePath: "/opt/boxen/homebrew/bin/php"
+    executablePath: "/usr/local/bin/php"
   "autocomplete-plus": {}
   "autocomplete-python":
     pythonPaths: "/Users/arandilopez/.anacoda/bin"
@@ -18,7 +18,7 @@
       "background-tips"
       "exception-reporting"
       "metrics"
-      "atom-typescript"
+      "atomify"
     ]
     followSymlinks: false
     hideGitIgnoredFiles: true
@@ -28,13 +28,19 @@
       "log"
       "repositories"
       "tmp"
+      ".idea"
+      ".sass-cache"
+      ".DS_Store"
+      "node_modules"
     ]
+    openEmptyEditorOnStart: false
     projectHome: "/Users/arandilopez/Code"
     telemetryConsent: "limited"
     themes: [
       "nucleus-dark-ui"
       "dracula-theme"
     ]
+    useCustomTitleBar: true
   editor:
     fontFamily: "Fira Mono"
     invisibles: {}
@@ -62,6 +68,8 @@
   "markdown-pdf":
     format: "Letter"
     orientation: "landscape"
+  "nord-atom-ui":
+    darkerFormFocusEffect: true
   "release-notes":
     viewedVersion: "0.89.0"
   "spell-check":
@@ -75,7 +83,7 @@
   wakatime:
     apikey: "Saved in your ~/.wakatime.cfg file"
   "wakatime-hidden":
-    lastInit: 1487101964
+    lastInit: 1488480986
   welcome:
     showOnStartup: false
 ".blade.html.php.text":

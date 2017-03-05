@@ -20,7 +20,7 @@ set -e
 ## Start script
 cd $PROJECTS_RAILS
 PROJECTNAME=$1
-rails new $PROJECTNAME
+rails new $PROJECTNAME $2
 cd $PROJECTNAME
 git init
 git add .

@@ -4,6 +4,7 @@ export ZSH=$HOME/.dotfiles
 # your project folder that we can `c\s [tab]` to
 export PROJECTS=~/Code
 export PROJECTS_RAILS=~/src
+export ATOM_REPOS_HOME=$PROJECTS
 
 # Stash your environment variables in ~/.localrc. This means they'll stay out
 # of your main dotfiles repository (which may be public, like this one), but
@@ -40,6 +41,17 @@ do
 done
 
 unset config_files
+
+if (( $+commands[rbenv] ))
+then
+  eval "$(rbenv init -)"
+fi
+
+if (( $+commands[nodenv] ))
+then
+  eval "$(nodenv init -)"
+fi
+
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"

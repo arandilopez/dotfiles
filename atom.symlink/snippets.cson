@@ -1,8 +1,8 @@
-'.source.php':
-  'Closure':
-    'prefix': 'f',
-    'body': """
-        function (${1:$var}) {
-            ${2:// code...}
-        }
-      """
+# '.source.php':
+#   'Closure':
+#     'prefix': 'f',
+#     'body': """
+#         function (${1:$var}) {
+#             ${2:// code...}
+#         }
+#       """
