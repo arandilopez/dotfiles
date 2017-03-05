@@ -1,0 +1,23 @@
+#!/bin/sh
+#
+# Copyright (c) 2017 Arandi López All Rights Reserved.
+#
+# Push to heroku
+#
+if [ ! -z `git remote | grep heroku` ]; then
+  echo "Checking for uncommited changes..."
+  if [[ -z  $(git status --porcelain) ]]; then
+    echo "Your branch is clean!"
+    echo "Let's push it!"
+    git push heroku master
+  else
+    echo "You have uncommited changes."
+    read -p "Do you wish to push master branch anyway? (y/N) " yn
+    case $yn in
+        'Yes'|'yes'|'y'|'Y' ) git push heroku master; break;;
+        * ) exit;;
+    esac
+  fi
+else
+  echo "You don´t have a remote named heroku... Are you sure this is heroku project?"
+fi
