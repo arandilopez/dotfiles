@@ -52,6 +52,8 @@ then
   eval "$(nodenv init -)"
 fi
 
+# Register ssh key
+ssh-add -K 2&> /dev/null
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
