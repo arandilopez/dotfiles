@@ -8,5 +8,7 @@ atom.symlink/storage
 atom.symlink/themes
 atom.symlink/dev
 atom.symlink/recovery
+atom.symlink/linter-config.json
+atom.symlink/package-deps-state.json
 
 git/gitconfig.local.symlink
