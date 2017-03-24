@@ -18,7 +18,6 @@
       "background-tips"
       "exception-reporting"
       "metrics"
-      "atomify"
     ]
     followSymlinks: false
     hideGitIgnoredFiles: true
@@ -31,7 +30,6 @@
       ".idea"
       ".sass-cache"
       ".DS_Store"
-      "node_modules"
     ]
     openEmptyEditorOnStart: false
     projectHome: "/Users/arandilopez/Code"
@@ -65,6 +63,12 @@
   "linter-pycodestyle":
     executablePath: "pep8"
     maxLineLength: 120
+  "linter-ruby":
+    ignoredExtensions: [
+      "md"
+    ]
+    rubyExecutablePath: "/Users/arandilopez/.rbenv/shims/ruby"
+  "linter-ui-default": {}
   "markdown-pdf":
     format: "Letter"
     orientation: "landscape"
@@ -83,10 +87,13 @@
   wakatime:
     apikey: "Saved in your ~/.wakatime.cfg file"
   "wakatime-hidden":
-    lastInit: 1489436357
+    lastInit: 1490387108
   welcome:
     showOnStartup: false
 ".blade.html.php.text":
   editor:
     commentEnd: " --}}"
     commentStart: "{{-- "
+".html.php.text":
+  editor:
+    tabLength: 4

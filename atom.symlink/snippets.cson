@@ -6,3 +6,8 @@
             ${2:// code...}
         }
       """
+
+'.source.js':
+  'Return':
+    'prefix': 'ret',
+    'body': 'return $1;'
