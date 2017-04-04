@@ -2,6 +2,7 @@
 export ZSH=$HOME/.dotfiles
 
 # your project folder that we can `c\s [tab]` to
+export DOCUMENTS_PATH=~/Documents
 export PROJECTS=~/Code
 export PROJECTS_RAILS=~/src
 export ATOM_REPOS_HOME=$PROJECTS

@@ -87,7 +87,7 @@
   wakatime:
     apikey: "Saved in your ~/.wakatime.cfg file"
   "wakatime-hidden":
-    lastInit: 1490387108
+    lastInit: 1491235222
   welcome:
     showOnStartup: false
 ".blade.html.php.text":

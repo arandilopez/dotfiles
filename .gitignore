@@ -12,3 +12,5 @@ atom.symlink/linter-config.json
 atom.symlink/package-deps-state.json
 
 git/gitconfig.local.symlink
+
+cache/

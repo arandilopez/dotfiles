@@ -1,0 +1,3 @@
+#compdef docs
+_files -W $DOCUMENTS_PATH -/
+# See further documentation in `functions/docs`.

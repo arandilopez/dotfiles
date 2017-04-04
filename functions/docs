@@ -1,0 +1,10 @@
+#!/bin/zsh
+
+# This lets you quickly jump into a documents directory.
+#
+# Type:
+#
+#   docs <tab>
+#
+
+cd "$DOCUMENTS_PATH/$1"
