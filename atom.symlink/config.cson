@@ -4,6 +4,8 @@
     binPhp: "/usr/local/bin/php"
     insertNewlinesForUseStatements: true
     verboseErrors: true
+  "atom-package-deps":
+    ignored: []
   "autocomplete-php":
     executablePath: "/usr/local/bin/php"
   "autocomplete-plus": {}
@@ -32,20 +34,20 @@
       ".sass-cache"
       ".DS_Store"
     ]
-    openEmptyEditorOnStart: false
     projectHome: "/Users/arandilopez/Code"
     telemetryConsent: "limited"
     themes: [
       "nucleus-dark-ui"
       "dracula-theme"
     ]
-    useCustomTitleBar: true
   editor:
     fontFamily: "Fira Mono"
+    fontSize: 15
     invisibles: {}
-    lineHeight: 2.5
+    preferredLineLength: 120
     showIndentGuide: true
     showInvisibles: true
+    softWrap: true
     softWrapAtPreferredLineLength: true
   "go-plus":
     goPath: "/Users/holman/Code/go"
@@ -70,7 +72,8 @@
       "md"
     ]
     rubyExecutablePath: "/Users/arandilopez/.rbenv/shims/ruby"
-  "linter-ui-default": {}
+  "linter-ui-default":
+    showPanel: true
   "markdown-pdf":
     format: "Letter"
     orientation: "landscape"
@@ -86,12 +89,16 @@
       "source.gfm"
       "text.git-commit"
     ]
+    locales: [
+      "en-US"
+      "es-MX"
+    ]
   "tree-view":
     hideIgnoredNames: true
   wakatime:
     apikey: "Saved in your ~/.wakatime.cfg file"
   "wakatime-hidden":
-    lastInit: 1491235222
+    lastInit: 1492529052
   welcome:
     showOnStartup: false
 ".blade.html.php.text":
