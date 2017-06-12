@@ -1,5 +1,4 @@
 #!/bin/sh
-#
-#  Clean repo
-#
+
+#  remove your shitty changes
 git clean -df && git checkout -- .
