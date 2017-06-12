@@ -38,11 +38,11 @@
     telemetryConsent: "limited"
     themes: [
       "nucleus-dark-ui"
-      "dracula-theme"
+      "dracula-syntax"
     ]
   editor:
     fontFamily: "Fira Mono"
-    fontSize: 15
+    fontSize: 16
     invisibles: {}
     preferredLineLength: 120
     showIndentGuide: true
@@ -73,6 +73,7 @@
     ]
     rubyExecutablePath: "/Users/arandilopez/.rbenv/shims/ruby"
   "linter-ui-default":
+    panelHeight: 60
     showPanel: true
   "markdown-pdf":
     format: "Letter"
