@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+git stash
+git rebase-master
+git stash pop
