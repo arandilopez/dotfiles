@@ -44,27 +44,27 @@ htmlize = ARGV.delete("-h")
 
 author = nil
 state = :pre_author
-`git log -M -C -C -p --no-color`.clean.split("\n").each do |l|
+`git log -M -C -C -p --no-color`.clean.split("\n").each do |line|
   case
-  when (state == :pre_author || state == :post_author) && l =~ /Author: (.*)$/
+  when (state == :pre_author || state == :post_author) && line =~ /Author: (.*)$/
     author = $1
     state = :post_author
     lines[author] ||= 0
-  when state == :post_author && l =~ /^\+\+\+/
+  when state == :post_author && line =~ /^\+\+\+/
     state = :in_diff
-  when state == :in_diff && l =~ /^[\+\-]/
+  when state == :in_diff && line =~ /^[\+\-]/
     lines[author] += 1
-  when state == :in_diff && l =~ /^commit /
+  when state == :in_diff && line =~ /^commit /
     state = :pre_author
   end
 end
 
-lines.sort_by { |a, c| -c }.each do |a, c|
-  a = a.obfuscate if obfuscate
-  a = a.htmlize if htmlize
+lines.sort_by { |author_info, counts| -counts }.each do |author_name, count|
+  author_name = author_name.obfuscate if obfuscate
+  author_name = author_name.htmlize if htmlize
   if verbose
-    puts "#{a}: #{c} lines of diff"
+    puts "#{author_name}: #{count} lines of diff"
   else
-    puts a
+    puts author_name
   end
 end
