@@ -2,12 +2,13 @@
 [include]
         path = ~/.gitconfig.local
 [hub]
-        protocol = https
+        protocol = ssh
 [alias]
-        co = checkout
+        co      = checkout
         promote = !$ZSH/bin/git-promote
         wtf     = !$ZSH/bin/git-wtf
         rank-contributors = !$ZSH/bin/git-rank-contributors
+        rank    = !$ZSH/bin/git-rank-contributors
         count   = !git shortlog -sn
 [color]
         diff = auto
@@ -15,7 +16,7 @@
         branch = auto
         ui = true
 [core]
-        editor = vim
+        editor = $EDITOR
 	      excludesfile = ~/.gitignore
 [apply]
         whitespace = nowarn
@@ -39,6 +40,6 @@
 	required = true
 	clean = git-lfs clean -- %f
 [user]
-	name = Arandi López
+	name = Arandi Lopez
 [github]
 	user = arandilopez
