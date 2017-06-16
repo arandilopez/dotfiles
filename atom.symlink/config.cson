@@ -40,6 +40,7 @@
       "nucleus-dark-ui"
       "dracula-syntax"
     ]
+    titleBar: "custom-inset"
   editor:
     fontFamily: "Fira Mono"
     fontSize: 16
@@ -73,6 +74,7 @@
     ]
     rubyExecutablePath: "/Users/arandilopez/.rbenv/shims/ruby"
   "linter-ui-default":
+    hidePanelWhenEmpty: true
     panelHeight: 60
     showPanel: true
   "markdown-pdf":
