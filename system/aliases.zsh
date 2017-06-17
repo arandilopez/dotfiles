@@ -9,4 +9,6 @@ then
   alias la='gls -A --color'
 fi
 
+alias lgrep="ls | grep"
+
 alias cl='clear'
