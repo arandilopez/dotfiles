@@ -21,6 +21,8 @@
       "background-tips"
       "exception-reporting"
       "metrics"
+      "language-clojure"
+      "language-csharp"
     ]
     followSymlinks: false
     hideGitIgnoredFiles: true
@@ -40,7 +42,6 @@
       "nucleus-dark-ui"
       "dracula-syntax"
     ]
-    titleBar: "custom-inset"
   editor:
     fontFamily: "Fira Mono"
     fontSize: 16
@@ -54,6 +55,7 @@
     goPath: "/Users/holman/Code/go"
   latex:
     enableShellEscape: true
+    engine: "lualatex"
     opener: "pdf-view"
   "linter-gcc":
     gccDefaultCFlags: "-c -Wall -fsyntax-only"
@@ -97,7 +99,9 @@
       "es-MX"
     ]
   "tree-view":
+    focusOnReveal: false
     hideIgnoredNames: true
+    hideVcsIgnoredFiles: true
   wakatime:
     apikey: "Saved in your ~/.wakatime.cfg file"
   "wakatime-hidden":
@@ -108,6 +112,12 @@
   editor:
     commentEnd: " --}}"
     commentStart: "{{-- "
+".haml.text":
+  editor:
+    autoIndentOnPaste: true
+".hamlc.text":
+  editor:
+    autoIndentOnPaste: true
 ".html.php.text":
   editor:
     tabLength: 4
