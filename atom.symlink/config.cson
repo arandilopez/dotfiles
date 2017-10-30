@@ -77,6 +77,7 @@
     ]
   editor:
     fontFamily: "Fira Mono"
+    fontSize: 16
     invisibles: {}
     preferredLineLength: 120
     showIndentGuide: true

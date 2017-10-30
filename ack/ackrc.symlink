@@ -1,0 +1,18 @@
+# Always use color
+--color
+
+# Ignored dirs
+--ignore-dir=.idea/
+--ignore-dir=node_modules/
+--ignore-dir=vendor/
+
+# Add to existing types
+--type-add=ruby:ext:haml
+--type-add=js:ext:vue
+
+# Add new types
+--type-set=markdown:ext:md,markdown
+--type-set=crystal:ext:cr,ecr
+--type-set=json:ext:json
+--type-set=vue:ext:vue
+--type-set=blade:match:.blade.php$
