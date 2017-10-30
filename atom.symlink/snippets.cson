@@ -10,4 +10,7 @@
 '.source.js':
   'Return':
     'prefix': 'ret',
-    'body': 'return $1;'
+    'body': 'return $1'
+  'Arrow Function':
+    'prefix': 'af',
+    'body': '(${1}) => ${2:{${3}}}'

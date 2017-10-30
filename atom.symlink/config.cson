@@ -15,6 +15,15 @@
     useSnippets: "required"
   autosave:
     enabled: true
+  "copy-highlighted":
+    style: "atom-one-light"
+  "copy-with-style":
+    preset1:
+      background_color: "#36474f"
+      external_command: "copy_as_html"
+      font_family: "Fira Mono"
+      font_size: 18
+      name: "Copy for Google Docs"
   core:
     closeDeletedFileTabs: true
     disabledPackages: [
@@ -23,8 +32,31 @@
       "metrics"
       "language-clojure"
       "language-csharp"
+      "autocomplete-R"
+      "autocomplete-python"
+      "edge"
+      "language-elixir"
+      "language-kotlin"
+      "language-latex"
+      "language-liquid"
+      "language-lua"
+      "language-nunjucks"
+      "language-r"
+      "language-rust"
+      "latex"
+      "latexer"
+      "react"
+      "color-picker"
+      "linter-rust"
+      "linter-lintr"
+      "markdown-pdf"
+      "pdf-view"
+      "language-objective-c"
+      "language-perl"
+      "atom-typescript"
+      "todo-show"
+      "copy-with-style"
     ]
-    followSymlinks: false
     hideGitIgnoredFiles: true
     ignoredNames: [
       ".bundle"
@@ -36,6 +68,7 @@
       ".sass-cache"
       ".DS_Store"
     ]
+    packagesWithKeymapsDisabled: []
     projectHome: "/Users/arandilopez/Code"
     telemetryConsent: "limited"
     themes: [
@@ -44,7 +77,6 @@
     ]
   editor:
     fontFamily: "Fira Mono"
-    fontSize: 16
     invisibles: {}
     preferredLineLength: 120
     showIndentGuide: true
@@ -57,6 +89,7 @@
     enableShellEscape: true
     engine: "lualatex"
     opener: "pdf-view"
+  linter: {}
   "linter-gcc":
     gccDefaultCFlags: "-c -Wall -fsyntax-only"
     gccDefaultCppFlags: "-c -Wall -std=c++11 -fsyntax-only"
@@ -77,7 +110,6 @@
     rubyExecutablePath: "/Users/arandilopez/.rbenv/shims/ruby"
   "linter-ui-default":
     hidePanelWhenEmpty: true
-    panelHeight: 60
     showPanel: true
   "markdown-pdf":
     format: "Letter"
@@ -97,6 +129,7 @@
     locales: [
       "en-US"
       "es-MX"
+      "es-ES"
     ]
   "tree-view":
     focusOnReveal: false
@@ -121,3 +154,8 @@
 ".html.php.text":
   editor:
     tabLength: 4
+".makefile.source":
+  editor:
+    showIndentGuide: true
+    showInvisibles: true
+    tabType: "hard"
