@@ -2,3 +2,7 @@ execute pathogen#infect()
 syntax on
 color dracula
 filetype plugin indent on
+set backspace=2
+
+set wildignore+=*/tmp/*,*/vendor/*,*/node_modules/*,*/.git/*,*.so,*.swp,*.zip
+
