@@ -14,3 +14,8 @@
   'Arrow Function':
     'prefix': 'af',
     'body': '(${1}) => ${2:{${3}}}'
+
+'.source.ruby':
+  'Return':
+    'prefix': 'ret',
+    'body': 'return $1'
