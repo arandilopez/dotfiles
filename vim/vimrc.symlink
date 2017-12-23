@@ -3,6 +3,6 @@ syntax on
 color dracula
 filetype plugin indent on
 set backspace=2
-
+set number
 set wildignore+=*/tmp/*,*/vendor/*,*/node_modules/*,*/.git/*,*.so,*.swp,*.zip
 
