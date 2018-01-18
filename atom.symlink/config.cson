@@ -37,23 +37,18 @@
       "edge"
       "language-elixir"
       "language-kotlin"
-      "language-latex"
       "language-liquid"
       "language-lua"
       "language-nunjucks"
       "language-r"
       "language-rust"
-      "latex"
-      "latexer"
       "react"
       "color-picker"
       "linter-rust"
       "linter-lintr"
       "markdown-pdf"
-      "pdf-view"
       "language-objective-c"
       "language-perl"
-      "todo-show"
       "copy-with-style"
     ]
     hideGitIgnoredFiles: true
@@ -110,6 +105,7 @@
     rubyExecutablePath: "/Users/arandilopez/.rbenv/shims/ruby"
   "linter-ui-default":
     hidePanelWhenEmpty: true
+    panelHeight: 60
     showPanel: true
   "markdown-pdf":
     format: "Letter"

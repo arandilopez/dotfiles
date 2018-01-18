@@ -1,8 +1,30 @@
+" Iniciar el manejador de plugins
 execute pathogen#infect()
+" colorcitos
 syntax on
-color dracula
+" identacion chida para codigo
 filetype plugin indent on
-set backspace=2
+" swag twerk
+color dracula
+" numero de lineas
 set number
+" el plugin de lightline ya pone el estatus chido
+set noshowmode
+
+set laststatus=2
+" ya la tecla backspace funciona para borrar
+set backspace=2
+" porque si
 set wildignore+=*/tmp/*,*/vendor/*,*/node_modules/*,*/.git/*,*.so,*.swp,*.zip
+" config de lightline, muestra el nombre del branch igual
+let g:lightline = {
+      \ 'colorscheme': 'Dracula',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'gitbranch#name'
+      \ },
+      \ }
 
