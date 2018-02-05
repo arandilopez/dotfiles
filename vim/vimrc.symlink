@@ -4,6 +4,10 @@ execute pathogen#infect()
 syntax on
 " identacion chida para codigo
 filetype plugin indent on
+
+let mapleader=","
+set timeout timeoutlen=1500
+
 " swag twerk
 color dracula
 " numero de lineas

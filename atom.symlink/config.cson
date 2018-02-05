@@ -78,6 +78,7 @@
     showInvisibles: true
     softWrap: true
     softWrapAtPreferredLineLength: true
+  github: {}
   "go-plus":
     goPath: "/Users/holman/Code/go"
   latex:
