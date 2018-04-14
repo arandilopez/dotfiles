@@ -10,6 +10,11 @@ set timeout timeoutlen=1500
 
 " swag twerk
 color dracula
+
+" Mardown stuff
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_conceal = 0
 " numero de lineas
 set number
 " el plugin de lightline ya pone el estatus chido

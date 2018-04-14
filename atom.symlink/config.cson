@@ -1,4 +1,8 @@
 "*":
+  "advanced-open-file":
+    createDirectories: true
+    createFileInstantly: true
+    defaultInputValue: "Project root"
   "atom-autocomplete-php":
     binComposer: "/Users/arandilopez/.bin/composer"
     binPhp: "/usr/local/bin/php"
@@ -56,7 +60,6 @@
       ".bundle"
       ".git"
       "log"
-      "repositories"
       "tmp"
       ".idea"
       ".sass-cache"
@@ -69,6 +72,7 @@
       "nucleus-dark-ui"
       "dracula-syntax"
     ]
+    uriHandlerRegistration: "always"
   editor:
     fontFamily: "Fira Mono"
     fontSize: 16
@@ -132,6 +136,7 @@
     focusOnReveal: false
     hideIgnoredNames: true
     hideVcsIgnoredFiles: true
+    squashDirectoryNames: true
   wakatime:
     apikey: "Saved in your ~/.wakatime.cfg file"
   "wakatime-hidden":
