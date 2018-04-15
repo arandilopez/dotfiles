@@ -1,0 +1,9 @@
+[submodule "vim.symlink/bundle/dracula-theme"]
+	path = vim.symlink/bundle/dracula-theme
+	url = git@github.com:dracula/vim.git
+[submodule "vim.symlink/bundle/lightline.vim"]
+	path = vim.symlink/bundle/lightline.vim
+	url = git@github.com:itchyny/lightline.vim
+[submodule "vim.symlink/bundle/vim-gitbranch"]
+	path = vim.symlink/bundle/vim-gitbranch
+	url = git@github.com:itchyny/vim-gitbranch
