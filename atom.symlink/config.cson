@@ -74,7 +74,7 @@
     ]
     uriHandlerRegistration: "always"
   editor:
-    fontFamily: "Fira Code"
+    fontFamily: "Fira Mono"
     fontSize: 16
     invisibles: {}
     preferredLineLength: 120
