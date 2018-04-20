@@ -47,16 +47,8 @@ if yes?('Generate a user-model?')
 end
 
 if enable_webpack
+  rails_command 'webpacker:install'
   rails_command 'webpacker:install:vue'
-  if RAILS_VERSION.to_f >= 5.2
-    initializer 'content_security_policy.rb', <<-CODE
-    if Rails.env.development?
-      p.script_src :self, :https, :unsafe_eval
-    else
-      p.script_src :self, :https
-    end
-    CODE
-  end
 end
 environment "config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }", env: 'development'
 environment "config.action_mailer.delivery_method = :smtp", env: 'development'
