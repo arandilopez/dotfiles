@@ -5,7 +5,8 @@ alias git='hub'
 
 # The rest of my fun git aliases
 alias g='hub'
-alias gl='git pull --prune'
+alias gl='git pull'
+alias glr='git pull --rebase --autostash'
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 alias gp='git push origin HEAD'
 alias gpt='git push origin HEAD && git track'
