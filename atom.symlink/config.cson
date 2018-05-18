@@ -73,6 +73,11 @@
       "dracula-syntax"
     ]
     uriHandlerRegistration: "always"
+  docblockr:
+    deep_indent: true
+    indentation_spaces: 2
+    indentation_spaces_same_para: 2
+    newline_after_block: true
   editor:
     fontFamily: "Fira Mono"
     fontSize: 16
