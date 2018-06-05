@@ -19,6 +19,7 @@ color dracula
 " Shortcuts
 map <C-k><C-b> :NERDTreeToggle<CR>
 imap <C-Space> <C-x><C-o>
+
 " Mardown stuff
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_frontmatter = 1
@@ -27,9 +28,9 @@ let g:vim_markdown_conceal = 0
 set number
 " Las @ es lo mejor de esta fuente
 set guifont=Fira\ Mono:h16
+set linespace=15
 " el plugin de lightline ya pone el estatus chido
 set noshowmode
-
 set laststatus=2
 " ya la tecla backspace funciona para borrar
 set backspace=2
