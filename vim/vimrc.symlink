@@ -14,9 +14,9 @@ color dracula
 
 " NERDTree stuff
 " open a NERDTree automatically when vim starts up if no files were specified
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-" Shutcuts
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" Shortcuts
 map <C-k><C-b> :NERDTreeToggle<CR>
 imap <C-Space> <C-x><C-o>
 " Mardown stuff
@@ -25,6 +25,8 @@ let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_conceal = 0
 " numero de lineas
 set number
+" Las @ es lo mejor de esta fuente
+set guifont=Fira\ Mono:h16
 " el plugin de lightline ya pone el estatus chido
 set noshowmode
 
