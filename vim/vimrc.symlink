@@ -2,9 +2,10 @@
 execute pathogen#infect()
 " colorcitos
 syntax on
+
 " identacion chida para codigo
 filetype plugin indent on
-
+set omnifunc=syntaxcomplete#Complete
 let mapleader=","
 set timeout timeoutlen=1500
 
@@ -15,8 +16,9 @@ color dracula
 " open a NERDTree automatically when vim starts up if no files were specified
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-map <C-p> :NERDTreeToggle<CR>
-
+" Shutcuts
+map <C-k><C-b> :NERDTreeToggle<CR>
+imap <C-Space> <C-x><C-o>
 " Mardown stuff
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_frontmatter = 1
