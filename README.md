@@ -1,4 +1,4 @@
-# holman does dotfiles
+# arandilopez' holman dotfiles fork
 
 Your dotfiles are how you personalize your system. These are mine.
 
@@ -50,7 +50,7 @@ There's a few special files in the hierarchy.
 Run this:
 
 ```sh
-git clone https://github.com/holman/dotfiles.git ~/.dotfiles
+git clone https://github.com/arandilopez/osxdotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 script/bootstrap
 ```
@@ -77,7 +77,7 @@ If you're brand-new to the project and run into any blockers, please
 [open an issue](https://github.com/holman/dotfiles/issues) on this repository
 and I'd love to get it fixed for you!
 
-## thanks
+## thanks from holman
 
 I forked [Ryan Bates](http://github.com/ryanb)' excellent
 [dotfiles](http://github.com/ryanb/dotfiles) for a couple years before the
@@ -85,3 +85,5 @@ weight of my changes and tweaks inspired me to finally roll my own. But Ryan's
 dotfiles were an easy way to get into bash customization, and then to jump ship
 to zsh a bit later. A decent amount of the code in these dotfiles stem or are
 inspired from Ryan's original project.
+
+## thanks to holman!
