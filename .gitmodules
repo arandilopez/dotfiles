@@ -10,3 +10,6 @@
 [submodule "vim.symlink/bundle/editorconfig-vim"]
 	path = vim.symlink/bundle/editorconfig-vim
 	url = https://github.com/editorconfig/editorconfig-vim
+[submodule "vim.symlink/bundle/nerdtree"]
+	path = vim.symlink/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
