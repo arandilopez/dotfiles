@@ -19,6 +19,7 @@ color dracula
 " Shortcuts
 map <C-k><C-b> :NERDTreeToggle<CR>
 imap <C-Space> <C-x><C-o>
+nnoremap <C-p> :<C-u>FZF<CR>
 
 " Mardown stuff
 let g:vim_markdown_folding_disabled = 1
@@ -48,3 +49,4 @@ let g:lightline = {
       \ },
       \ }
 
+set rtp+=/usr/local/opt/fzf

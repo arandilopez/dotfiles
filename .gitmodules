@@ -31,3 +31,12 @@
 [submodule "vim.symlink/bundle/vim-gitgutter"]
 	path = vim.symlink/bundle/vim-gitgutter
 	url = git://github.com/airblade/vim-gitgutter.git
+[submodule "vim.symlink/bundle/vim-commentary"]
+	path = vim.symlink/bundle/vim-commentary
+	url = git://github.com/tpope/vim-commentary.git
+[submodule "vim.symlink/bundle/surround"]
+	path = vim.symlink/bundle/surround
+	url = https://tpope.io/vim/surround.git
+[submodule "vim.symlink/bundle/vim-coffee-script"]
+	path = vim.symlink/bundle/vim-coffee-script
+	url = https://github.com/kchmck/vim-coffee-script.git
