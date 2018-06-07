@@ -12,14 +12,14 @@ set timeout timeoutlen=1500
 " swag twerk
 color dracula
 
-" NERDTree stuff
-" open a NERDTree automatically when vim starts up if no files were specified
-" autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " Shortcuts
 map <C-k><C-b> :NERDTreeToggle<CR>
 imap <C-Space> <C-x><C-o>
-nnoremap <C-p> :<C-u>FZF<CR>
+" ctrlp settings
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 " Mardown stuff
 let g:vim_markdown_folding_disabled = 1
@@ -28,7 +28,14 @@ let g:vim_markdown_conceal = 0
 " numero de lineas
 set number
 " Las @ es lo mejor de esta fuente
-set guifont=Fira\ Mono:h16
+if has("gui_running")
+  if has("gui_gtk")
+    set guifont=Fira\ Mono\ 14
+    set gfn=Fira\ Mono\ 14
+  elseif has("gui_macvim")
+    set guifont=Fira\ Mono:h16
+  endif
+endif
 set linespace=15
 " el plugin de lightline ya pone el estatus chido
 set noshowmode
@@ -49,4 +56,3 @@ let g:lightline = {
       \ },
       \ }
 
-set rtp+=/usr/local/opt/fzf
