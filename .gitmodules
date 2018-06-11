@@ -43,3 +43,12 @@
 [submodule "vim.symlink/bundle/ctrlp.vim"]
 	path = vim.symlink/bundle/ctrlp.vim
 	url = git@github.com:ctrlpvim/ctrlp.vim.git
+[submodule "vim.symlink/bundle/vim-endwise"]
+	path = vim.symlink/bundle/vim-endwise
+	url = git@github.com:tpope/vim-endwise.git
+[submodule "vim.symlink/bundle/auto-pairs"]
+	path = vim.symlink/bundle/auto-pairs
+	url = git@github.com:jiangmiao/auto-pairs.git
+[submodule "vim.symlink/bundle/vim-wakatime"]
+	path = vim.symlink/bundle/vim-wakatime
+	url = git://github.com/wakatime/vim-wakatime.git
