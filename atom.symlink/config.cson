@@ -29,6 +29,7 @@
       font_size: 18
       name: "Copy for Google Docs"
   core:
+    autoHideMenuBar: true
     closeDeletedFileTabs: true
     disabledPackages: [
       "background-tips"
