@@ -25,13 +25,22 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_conceal = 0
+
 " numero de lineas
 set number
+set ruler 
+" Set Proper Tabs
+set tabstop=4
+set shiftwidth=4
+set smarttab
+set expandtab
+set cursorline
 " Las @ es lo mejor de esta fuente
 if has("gui_running")
   if has("gui_gtk")
     set guifont=Fira\ Mono\ 14
     set gfn=Fira\ Mono\ 14
+    set selection=inclusive
   elseif has("gui_macvim")
     set guifont=Fira\ Mono:h16
   endif

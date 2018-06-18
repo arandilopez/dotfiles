@@ -52,3 +52,6 @@
 [submodule "vim.symlink/bundle/vim-wakatime"]
 	path = vim.symlink/bundle/vim-wakatime
 	url = git://github.com/wakatime/vim-wakatime.git
+[submodule "vim.symlink/bundle/vim-multiple-cursors"]
+	path = vim.symlink/bundle/vim-multiple-cursors
+	url = git@github.com:terryma/vim-multiple-cursors.git
