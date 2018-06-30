@@ -2,19 +2,61 @@
 execute pathogen#infect()
 " colorcitos
 syntax on
-
 " identacion chida para codigo
 filetype plugin indent on
 set omnifunc=syntaxcomplete#Complete
 let mapleader=","
 set timeout timeoutlen=1500
-
+" numero de lineas
+set number
+set ruler 
+" Set Proper Tabs
+set tabstop=2
+set shiftwidth=2
+set shiftround
+set smarttab
+set expandtab
+set cursorline
+set linespace=15
+" el plugin de lightline ya pone el estatus chido
+set noshowmode
+set laststatus=2
+" ya la tecla backspace funciona para borrar
+set backspace=2
+set wildignore+=*/tmp/*,*/vendor/*,*/node_modules/*,*/.git/*,*.so,*.swp,*.zip
 " swag twerk
 color dracula
+" Case Insensitivity Pattern Matching
+set ignorecase
+" Overrides ignorecase if pattern contains upcase
+set smartcase
+" Las @ es lo mejor de esta fuente
+if has("gui_running")
+  if has("gui_gtk")
+    set guifont=Fira\ Mono\ 14
+    set gfn=Fira\ Mono\ 14
+    set selection=inclusive
+  elseif has("gui_macvim")
+    set guifont=Fira\ Mono:h16
+  endif
+endif
 
 " Shortcuts
 map <C-k><C-b> :NERDTreeToggle<CR>
-imap <C-Space> <C-x><C-o>
+" imap <C-Space> <C-x><C-o>
+" Moving lines up and down
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
+" Move to beginning/end of line
+nnoremap B 0
+nnoremap E $
+" Select all text
+nnoremap vA ggVG
+
 " ctrlp settings
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
@@ -26,33 +68,6 @@ let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_conceal = 0
 
-" numero de lineas
-set number
-set ruler 
-" Set Proper Tabs
-set tabstop=4
-set shiftwidth=4
-set smarttab
-set expandtab
-set cursorline
-" Las @ es lo mejor de esta fuente
-if has("gui_running")
-  if has("gui_gtk")
-    set guifont=Fira\ Mono\ 14
-    set gfn=Fira\ Mono\ 14
-    set selection=inclusive
-  elseif has("gui_macvim")
-    set guifont=Fira\ Mono:h16
-  endif
-endif
-set linespace=15
-" el plugin de lightline ya pone el estatus chido
-set noshowmode
-set laststatus=2
-" ya la tecla backspace funciona para borrar
-set backspace=2
-" porque si
-set wildignore+=*/tmp/*,*/vendor/*,*/node_modules/*,*/.git/*,*.so,*.swp,*.zip
 " config de lightline, muestra el nombre del branch igual
 let g:lightline = {
       \ 'colorscheme': 'Dracula',

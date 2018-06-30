@@ -55,6 +55,7 @@
       "language-objective-c"
       "language-perl"
       "copy-with-style"
+      "vim-mode-plus"
     ]
     hideGitIgnoredFiles: true
     ignoredNames: [
@@ -143,6 +144,10 @@
     hideIgnoredNames: true
     hideVcsIgnoredFiles: true
     squashDirectoryNames: true
+  "vim-mode-plus":
+    clearMultipleCursorsOnEscapeInsertMode: true
+    statusBarModeStringStyle: "long"
+    useSmartcaseForSearch: true
   wakatime:
     apikey: "Saved in your ~/.wakatime.cfg file"
   "wakatime-hidden":

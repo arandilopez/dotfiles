@@ -29,3 +29,4 @@ alias gshp='git stash pop'
 alias grm="git rebase-master"
 alias gsrm="git stash-rebase-master"
 alias gml="git co master && git pull"
+alias gdlm="git delete-local-merged"

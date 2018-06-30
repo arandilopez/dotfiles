@@ -55,3 +55,6 @@
 [submodule "vim.symlink/bundle/vim-multiple-cursors"]
 	path = vim.symlink/bundle/vim-multiple-cursors
 	url = git@github.com:terryma/vim-multiple-cursors.git
+[submodule "vim.symlink/bundle/YouCompleteMe"]
+	path = vim.symlink/bundle/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe
