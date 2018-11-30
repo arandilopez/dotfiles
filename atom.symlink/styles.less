@@ -1,7 +1,14 @@
 atom-text-editor {
   line-height: 2.5;
-  // font-size: 18px;
 }
-.syntax--entity {
-  text-decoration: none !important;
+// .syntax--entity {
+//   text-decoration: none !important;
+// }
+
+atom-text-editor::shadow .cursor, atom-text-editor .cursor {
+  border-left: none;
+  border-bottom: 1px solid;
+}
+atom-text-editor .cursor {
+  opacity: 1 !important;
 }
