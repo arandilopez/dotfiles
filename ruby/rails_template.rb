@@ -50,6 +50,7 @@ if enable_webpack
   rails_command 'webpacker:install'
   rails_command 'webpacker:install:vue'
 end
+
 environment "config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }", env: 'development'
 environment "config.action_mailer.delivery_method = :smtp", env: 'development'
 environment "config.action_mailer.smtp_settings = { address: 'localhost', port: 1025 }", env: 'development'
