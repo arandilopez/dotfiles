@@ -1,4 +1,5 @@
 " Iniciar el manejador de plugins
+set encoding=utf-8
 execute pathogen#infect()
 " colorcitos
 syntax on
