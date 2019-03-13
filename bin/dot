@@ -6,16 +6,22 @@
 # to make sure you're on the latest and greatest.
 export ZSH=$HOME/.dotfiles
 
-# Set OS X defaults
-$ZSH/osx/set-defaults.sh
+case `uname` in
+  Linux )
+    ;;
+  Darwin )
+    # Set OS X defaults
+    $ZSH/osx/set-defaults.sh
 
-# Install homebrew
-$ZSH/homebrew/install.sh 2>&1
+    # Install homebrew
+    $ZSH/homebrew/install.sh 2>&1
 
-# Upgrade homebrew
-echo "› brew update"
-brew update
+    # Upgrade homebrew
+    echo "› brew update"
+    brew update
 
-# Install software
-echo "› $ZSH/script/install"
-$ZSH/script/install
+    # Install software
+    echo "› $ZSH/script/install"
+    $ZSH/script/install
+    ;;
+esac
