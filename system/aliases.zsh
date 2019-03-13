@@ -41,6 +41,8 @@ case `uname` in
     alias l='ls -lAh'
     alias ll='ls -l'
     alias la='ls -A'
+
+    alias open='xdg-open'
   ;;
 esac
 
