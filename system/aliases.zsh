@@ -39,11 +39,13 @@ case `uname` in
   Linux)
     alias ls='ls $LS_OPTIONS_GNU'
     alias l='ls -lAh'
-    alias la='ls -A'
     alias ll='ls -l'
+    alias la='ls -A'
   ;;
 esac
 
 alias lgrep="ls | grep"
 
 alias cl='clear'
+
+alias quit='exit'
