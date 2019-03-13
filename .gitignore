@@ -7,6 +7,7 @@ atom.symlink/packages
 atom.symlink/storage
 atom.symlink/themes
 atom.symlink/dev
+atom.symlink/nohup.out
 atom.symlink/recovery
 atom.symlink/linter-config.json
 atom.symlink/package-deps-state.json
