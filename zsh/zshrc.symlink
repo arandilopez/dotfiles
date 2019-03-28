@@ -3,7 +3,6 @@ export ZSH=$HOME/.dotfiles
 # your project folder that we can `c\s [tab]` to
 export DOCUMENTS_PATH=~/Documents
 export PROJECTS=~/Code
-export PROJECTS_RAILS=~/src
 export ATOM_REPOS_HOME=$PROJECTS
 
 # Stash your environment variables in ~/.localrc. This means they'll stay out
@@ -41,16 +40,6 @@ do
 done
 
 unset config_files
-
-if (( $+commands[rbenv] ))
-then
-  eval "$(rbenv init -)"
-fi
-
-if (( $+commands[nodenv] ))
-then
-  eval "$(nodenv init -)"
-fi
 
 # Register ssh key
 ssh-add -K 2&> /dev/null

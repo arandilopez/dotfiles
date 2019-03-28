@@ -1,7 +1,7 @@
 case `uname` in
   Linux )
     export ANDROID_HOME="$HOME/Android/sdk";
-    export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64/bin/"
+    export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/bin/"
     ;;
   Darwin )
     export JAVA_HOME=$(/usr/libexec/java_home)

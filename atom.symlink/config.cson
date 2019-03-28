@@ -40,7 +40,6 @@
       "autocomplete-R"
       "autocomplete-python"
       "edge"
-      "language-elixir"
       "language-kotlin"
       "language-liquid"
       "language-lua"
@@ -154,6 +153,8 @@
     lastInit: 1492529052
   welcome:
     showOnStartup: false
+  "xml-formatter":
+    endLineCharacter: "LF (\\n)"
 ".blade.html.php.text":
   editor:
     commentEnd: " --}}"

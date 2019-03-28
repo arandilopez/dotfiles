@@ -20,12 +20,12 @@ brew 'mysql'
 # brew 'homebrew/php/php71'
 
 # brew 'node'
-brew 'nodenv'
+# brew 'nodenv'
 
 brew 'readline'
 
-brew 'ruby-build'
-brew 'rbenv'
+# brew 'ruby-build'
+# brew 'rbenv'
 
 brew 'roundup'
 brew 'spaceman-diff'
