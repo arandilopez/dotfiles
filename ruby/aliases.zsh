@@ -1,7 +1,7 @@
 
 alias r='rails'
 alias rt='rails test'
-alias rts='rails test:system'
+alias rts='rails test test/system'
 alias rs='rails server'
 alias rc='rails console'
 
