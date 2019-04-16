@@ -41,5 +41,15 @@ done
 
 unset config_files
 
+if [[ (`uname` == 'Linux') && (-d "$HOME/.asdf") ]]; then
+  source $HOME/.asdf/asdf.sh
+  source $HOME/.asdf/completions/asdf.bash
+fi
+
+if [[ (`uname` == 'Darwin') && (-d $(brew --prefix asdf)) ]]; then
+  source $(brew --prefix asdf)/asdf.sh
+  source $(brew --prefix asdf)/etc/bash_completion.d/asdf.bash
+fi
+
 # Register ssh key
 ssh-add -K 2&> /dev/null
