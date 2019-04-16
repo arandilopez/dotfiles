@@ -1,4 +1,5 @@
 "*":
+  "advanced-new-file": {}
   "advanced-open-file":
     createDirectories: true
     createFileInstantly: true
