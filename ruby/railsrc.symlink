@@ -1,1 +1,8 @@
 --database=postgresql
+--skip-sprockets
+--template=~/.dotfiles/ruby/rails_template.rb
+--skip-action-cable
+--skip-coffee
+--skip-javascript
+--skip-turbolinks
+--skip-active-storage
