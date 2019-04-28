@@ -1,5 +1,5 @@
 # Pipe my public key to my clipboard.
-case `uname` in
+case $OS_NAME in
   Darwin )
     alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
     ;;

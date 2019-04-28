@@ -1,3 +1,5 @@
+#!/bin/sh
+export OS_NAME=`uname`
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/.dotfiles
 export DOCUMENTS_PATH=~/Documents
@@ -16,7 +18,6 @@ fi
 # all of our zsh files
 typeset -U config_files
 config_files=($ZSH/**/*.zsh)
-
 # load the path files
 for file in ${(M)config_files:#*/path.zsh}
 do
@@ -30,8 +31,12 @@ do
 done
 
 # initialize autocomplete here, otherwise functions won't be loaded
-autoload -U compinit
-compinit
+autoload -Uz compinit
+if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
+	compinit;
+else
+	compinit -C;
+fi;
 
 # load every completion after autocomplete loads
 for file in ${(M)config_files:#*/completion.zsh}
@@ -41,14 +46,14 @@ done
 
 unset config_files
 
-if [[ (`uname` == 'Linux') && (-d "$HOME/.asdf") ]]; then
+if [[ ($OS_NAME == 'Linux') && (-d "$HOME/.asdf") ]]; then
   source $HOME/.asdf/asdf.sh
   source $HOME/.asdf/completions/asdf.bash
 fi
 
-if [[ (`uname` == 'Darwin') && (-d $(brew --prefix asdf)) ]]; then
-  source $(brew --prefix asdf)/asdf.sh
-  source $(brew --prefix asdf)/etc/bash_completion.d/asdf.bash
+if [[ ($OS_NAME == 'Darwin') && (-d "/usr/local/opt/asdf") ]]; then
+  source /usr/local/opt/asdf/asdf.sh
+  source /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
 fi
 
 # Register ssh key

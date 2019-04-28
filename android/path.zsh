@@ -1,4 +1,4 @@
-case `uname` in
+case $OS_NAME in
   Linux )
     export ANDROID_HOME="$HOME/Android/Sdk";
     export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/"

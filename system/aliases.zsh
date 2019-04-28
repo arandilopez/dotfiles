@@ -26,7 +26,7 @@ export LS_COLORS
 # grc overides for ls
 #   Made possible through contributions from generous benefactors like
 #   `brew install coreutils`
-case `uname` in
+case $OS_NAME in
   Darwin)
     if $(gls &>/dev/null)
     then

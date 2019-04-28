@@ -1,4 +1,4 @@
-case `uname` in
+case $OS_NAME in
   Linux )
     export PATH="$HOME/.config/composer/vendor/bin:$PATH"
     ;;
