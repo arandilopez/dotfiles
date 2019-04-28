@@ -4,7 +4,7 @@ case `uname` in
     export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/"
     ;;
   Darwin )
-    export JAVA_HOME=$(/usr/libexec/java_home)
+    export JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home"
     export ANDROID_HOME="$HOME/Library/Android/sdk";
     ;;
 esac
