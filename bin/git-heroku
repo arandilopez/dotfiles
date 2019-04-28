@@ -17,6 +17,7 @@ if [ ! -z `git remote | grep heroku` ]; then
         'Yes'|'yes'|'y'|'Y' ) git push heroku master; break;;
         * ) exit;;
     esac
+    unset yn
   fi
 else
   echo "You don´t have a remote named heroku... Are you sure this is heroku project?"
