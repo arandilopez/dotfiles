@@ -4,4 +4,11 @@
 
 branch=$(git rev-parse --abbrev-ref HEAD)
 echo $branch
-echo $branch | tr -d '\n' | tr -d ' ' | pbcopy
+case $OS_NAME in
+  Darwin )
+    echo $branch | tr -d '\n' | tr -d ' ' | pbcopy
+    ;;
+  Linux )
+    echo "$branch" | tr -d '\n' | tr -d ' ' | xclip -sel clip
+    ;;
+esac
