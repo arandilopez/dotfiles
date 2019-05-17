@@ -62,7 +62,7 @@ set ignorecase
 
 " Overrides ignorecase if pattern contains upcase
 set smartcase
-
+set guicursor+=i:hor1-blinkwait0,r:hor1
 " Las @ es lo mejor de esta fuente
 if has("gui_running")
   if has("gui_gtk")
