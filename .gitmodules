@@ -58,3 +58,6 @@
 [submodule "vim.symlink/bundle/onedark.vim"]
 	path = vim.symlink/bundle/onedark.vim
 	url = https://github.com/joshdick/onedark.vim
+[submodule "vim.symlink/bundle/vim-polyglot"]
+	path = vim.symlink/bundle/vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot

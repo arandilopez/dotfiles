@@ -23,7 +23,9 @@ syntax on
 colorscheme onedark
 
 " Quitar el color del background
-hi Normal ctermbg=NONE
+highlight Normal ctermbg=none 
+highlight SignColumn ctermbg=none 
+highlight LineNr ctermbg=none 
 
 " identacion chida para codigo
 filetype plugin indent on
@@ -44,7 +46,7 @@ set shiftround
 set smarttab
 set expandtab
 
-set cursorline
+" set cursorline
 
 set linespace=15
 
