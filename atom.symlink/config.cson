@@ -89,6 +89,9 @@
     showInvisibles: true
     softWrap: true
     softWrapAtPreferredLineLength: true
+  "git-blame":
+    colorCommitAuthors: true
+    columnWidth: 469
   github: {}
   "go-plus":
     goPath: "/Users/holman/Code/go"
