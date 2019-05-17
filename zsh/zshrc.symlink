@@ -58,3 +58,4 @@ fi
 
 # Register ssh key
 ssh-add -K 2&> /dev/null
+unsetopt PROMPT_SP
