@@ -3,6 +3,7 @@ set encoding=utf-8
 execute pathogen#infect()
 " colorcitos
 syntax on
+colorscheme onedark
 " identacion chida para codigo
 filetype plugin indent on
 set omnifunc=syntaxcomplete#Complete
@@ -10,7 +11,7 @@ let mapleader=","
 set timeout timeoutlen=1500
 " numero de lineas
 set number
-set ruler 
+set ruler
 " Set Proper Tabs
 set tabstop=2
 set shiftwidth=2
@@ -26,7 +27,7 @@ set laststatus=2
 set backspace=2
 set wildignore+=*/tmp/*,*/vendor/*,*/node_modules/*,*/.git/*,*.so,*.swp,*.zip
 " swag twerk
-color dracula
+" color dracula
 " Case Insensitivity Pattern Matching
 set ignorecase
 " Overrides ignorecase if pattern contains upcase
@@ -71,7 +72,7 @@ let g:vim_markdown_conceal = 0
 
 " config de lightline, muestra el nombre del branch igual
 let g:lightline = {
-      \ 'colorscheme': 'Dracula',
+      \ 'colorscheme': 'onedark',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
@@ -80,4 +81,3 @@ let g:lightline = {
       \   'gitbranch': 'gitbranch#name'
       \ },
       \ }
-
