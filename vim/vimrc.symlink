@@ -23,7 +23,7 @@ syntax on
 colorscheme onedark
 
 " Quitar el color del background
-hi Normal guibg=NONE ctermbg=NONE
+hi Normal ctermbg=NONE
 
 " identacion chida para codigo
 filetype plugin indent on
