@@ -2,7 +2,7 @@
 --skip-sprockets
 --template=~/.dotfiles/ruby/rails_template.rb
 --skip-action-cable
+--skip-active-storage
 --skip-coffee
 --skip-javascript
---skip-turbolinks
---skip-active-storage
+/* --skip-turbolinks */

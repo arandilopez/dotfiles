@@ -1,48 +1,58 @@
-
 APP_NAME = @app_name.titleize
 RAILS_VERSION = File.read('Gemfile').scan(%r{(?<=gem 'rails', '~> ).*(?=')}).first
 
-##############################
-## INSTALL GEMS
-##############################
+##################
+# Methods
+##################
+def install_webpack?
+  return unless yes? "Would you like to install Webpack?"
+  gem 'webpacker'
+  rails_command 'webpacker:install'
+  driver = ask("Which front-end framework will you use? [vue, react, angular, stimulus] (default: vue)")
+  driver = 'vue' if driver.blank?
+  rails_command "webpacker:install:#{driver}"
+end
+
+def install_devise?
+  return unless yes?("Would you like to install Devise?")
+  gem "devise"
+  generate "devise:install"
+  model_name = ask("What would you like the user model to be called? [user]")
+  model_name = "user" if model_name.blank?
+  generate "devise", model_name
+end
+
+def install_delayed_job?
+  return unless yes? "Would you like to instal Delayed Job?"
+  gem 'delayed_job_active_record'
+  generate "delayed_job:active_record"
+  environment 'config.active_job.queue_adapter = :delayed_job', env: :production
+  initializer "active_job.rb", <<-TEXT
+  Delayed::Worker.queue_attributes = {
+    high_priority: { priority: -10 },
+    default: { priority: 0 },
+    low_priority: { priority: 10 }
+  }
+  TEXT
+end
+
+def install_haml?
+  return unless yes? "Would you like to install Haml and convert your erb views to haml?"
+  gem 'hamlit-rails'
+  rails_command 'hamlit:erb2haml'
+end
+
+# Everything starts here!
+
 # Remove all coments and empty space fron the gemfile
 gsub_file 'Gemfile', /(^#|^. #).*?\n+/, ''
 gsub_file 'Gemfile', /^[\r\n]+/, "\n"
-enable_webpack = yes?("Enable webpack?")
-enable_bcrypt = yes?("Enable bcrypt for has_secure_password?")
-enable_devise = yes?("Enable devise for authenticacion?") unless enable_bcrypt
-enable_delayed_job = yes?("Enable delayed job for jobs?")
-enable_haml = yes?("Enable haml?")
-gem "haml-rails", "~> 1.0" if enable_haml
-gem 'bcrypt' if enable_bcrypt
-gem 'devise' if enable_devise
-gem 'webpacker', '~> 3.4' if enable_webpack
-gem 'delayed_job_active_record' if enable_delayed_job
-gem 'faker'
+
+# Adding dependencies
 gem_group :development, :test do
+  gem 'faker'
   gem 'dotenv-rails'
   gem 'factory_bot_rails'
-end
-
-run 'bundle install'
-
-if enable_haml
-  ENV['HAML_RAILS_DELETE_ERB'] = 'true'
-  rails_command 'haml:erb2haml'
-end
-
-if enable_webpack
-  rails_command 'webpacker:install'
-  rails_command 'webpacker:install:vue'
-end
-
-if enable_delayed_job
-  generate 'delayed_job:active_record'
-end
-
-if enable_devise
-  generate 'devise:install'
-  generate 'devise user'
 end
 
 ##############################
@@ -58,6 +68,11 @@ end
 end
 append_to_file '.gitignore', ".env\n"
 
+install_webpack?
+install_delayed_job?
+install_devise?
+install_haml?
+
 ##############################
 ## GENERATING HOME CONTROLLER
 ##############################
@@ -66,27 +81,17 @@ if yes?('Generate home controller and root path?')
   gsub_file 'config/routes.rb', "get 'home/index'", "root to: 'home#index'"
 end
 
-##############################
-## MODEL & DB
-##############################
-unless File.exist?('app/models/user.rb')
-  if yes?('Generate a user-model?')
-    params = [:model, 'user', 'email']
-    params << 'password_digest' if enable_bcrypt
-    generate(*params)
-    gsub_file 'app/models/user.rb', "Record\n", "Record\n\thas_secure_password\n" if enable_bcrypt
-  end
-end
-
 environment "config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }", env: 'development'
 environment "config.action_mailer.delivery_method = :smtp", env: 'development'
 environment "config.action_mailer.smtp_settings = { address: 'localhost', port: 1025 }", env: 'development'
+
+application "config.time_zone = 'America/Mexico_City'"
 
 after_bundle do
   run 'spring stop'
   git add: '.'
   git commit: "-m 'Initial commit'"
   puts "****************************************"
-  puts "Don't forget to migrate your db!"
+  puts "Don't forget to create and migrate your db!"
   puts "****************************************"
 end
