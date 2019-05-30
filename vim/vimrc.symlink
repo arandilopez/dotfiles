@@ -1,10 +1,9 @@
-set encoding=utf-8
 " Iniciar el manejador de plugins
 execute pathogen#infect()
-
+ 
 " Iniciar la syntaxis y thema de onedark
 syntax on
-let g:onedark_terminal_italics=1
+" let g:onedark_terminal_italics=1
 colorscheme onedark
 
 " Quitar el color del background
@@ -49,10 +48,12 @@ set ignorecase
 
 " Overrides ignorecase if pattern contains upcase
 set smartcase
+
+" Asignar el tipo de cursor al usar una interfaz grafica
 set guicursor+=i:hor1-blinkwait0,r:hor1
 " Las @ es lo mejor de esta fuente
 if has("gui_running")
-  if has("gui_gtk")
+ if has("gui_gtk")
     set guifont=Fira\ Mono\ 14
     set gfn=Fira\ Mono\ 14
     set selection=inclusive
