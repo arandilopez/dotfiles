@@ -61,3 +61,6 @@
 [submodule "vim.symlink/bundle/vim-polyglot"]
 	path = vim.symlink/bundle/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot
+[submodule "zsh-autosuggestions"]
+	path = zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions

@@ -56,6 +56,8 @@ if [[ ($OS_NAME == 'Darwin') && (-d "/usr/local/opt/asdf") ]]; then
   source /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
 fi
 
+source $ZSH/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 # Register ssh key
 ssh-add -K 2&> /dev/null
 unsetopt PROMPT_SP
