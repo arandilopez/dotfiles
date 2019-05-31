@@ -1,4 +1,0 @@
-#!/bin/sh
-
-#  remove your shitty changes
-git clean -df && git checkout -- .
