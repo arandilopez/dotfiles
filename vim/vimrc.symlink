@@ -1,6 +1,12 @@
 " Iniciar el manejador de plugins
 execute pathogen#infect()
- 
+set nocompatible
+
+" Disable sounds
+set vb t_vb="
+set noerrorbells
+set visualbell
+
 " Iniciar la syntaxis y thema de onedark
 syntax on
 " let g:onedark_terminal_italics=1
@@ -14,7 +20,7 @@ highlight LineNr ctermbg=none
 " identacion chida para codigo
 filetype plugin indent on
 
-set omnifunc=syntaxcomplete#Complete
+" set omnifunc=syntaxcomplete#Complete
 
 let mapleader=","
 
@@ -22,7 +28,7 @@ set timeout timeoutlen=1500
 " numero de lineas
 set number
 
-set ruler
+" set ruler
 " Set Proper Tabs
 set tabstop=2
 set shiftwidth=2
@@ -30,9 +36,12 @@ set shiftround
 set smarttab
 set expandtab
 
-" set cursorline
-
-set linespace=15
+set cursorline
+set showmatch
+set mousehide
+set list
+set list lcs=trail:.,space:·,tab:»·,eol:¬
+" set linespace=15
 
 " el plugin de lightline ya pone el estatus chido
 set noshowmode
@@ -63,6 +72,7 @@ if has("gui_running")
 endif
 
 " Shortcuts
+" Habilitar nerdtree
 map <C-k><C-b> :NERDTreeToggle<CR>
 " imap <C-Space> <C-x><C-o>
 
@@ -81,11 +91,31 @@ nnoremap E $
 " Select all text
 nnoremap vA ggVG
 
+" Ctrl+s para save file
+inoremap <C-s> <Esc>:w<CR>
+
+" Moverse entre los tabs
+map <C-t><up> :tabr<cr>
+map <C-t><down> :tabl<cr>
+map <C-t><left> :tabp<cr>
+map <C-t><right> :tabn<cr>
+
+let c_space_errors = 1
+let java_space_errors = 1
+let python_space_errors = 1
+let ruby_space_errors = 1
+
 " ctrlp settings
-let g:ctrlp_map = '<c-p>'
+let g:ctrlp_map = '<C-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
-" let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+" let g:ctrlp_user_command = 'find %s -type f'
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ }
 
 " Mardown stuff
 let g:vim_markdown_folding_disabled = 1
