@@ -38,7 +38,7 @@ set cursorline
 set showmatch
 set mousehide
 set list
-set list lcs=trail:.,space:·,tab:»·,eol:¬
+set list lcs=trail:·,space:·,tab:»·,eol:¬
 set linespace=10
 
 " el plugin de lightline ya pone el estatus chido
