@@ -20,8 +20,6 @@ highlight LineNr ctermbg=none
 " identacion chida para codigo
 filetype plugin indent on
 
-" set omnifunc=syntaxcomplete#Complete
-
 let mapleader=","
 
 set timeout timeoutlen=1500
@@ -60,6 +58,8 @@ set smartcase
 
 " Asignar el tipo de cursor al usar una interfaz grafica
 set guicursor+=i:hor1-blinkwait0,r:hor1
+" Smaller updatetime for CursorHold & CursorHoldI
+set updatetime=300
 " Las @ es lo mejor de esta fuente
 if has("gui_running")
   if has("gui_gtk")
@@ -78,8 +78,8 @@ endif
 " Shortcuts
 " Habilitar nerdtree
 map <C-k><C-b> :NERDTreeToggle<CR>
-" imap <C-Space> <C-x><C-o>
-
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
 " Moving lines up and down
 nnoremap <A-j> :m .+1<CR>==
 nnoremap <A-k> :m .-2<CR>==

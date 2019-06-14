@@ -67,3 +67,6 @@
 [submodule "vim.symlink/bundle/vim-fugitive"]
 	path = vim.symlink/bundle/vim-fugitive
 	url = git@github.com:tpope/vim-fugitive.git
+[submodule "vim.symlink/bundle/coc.nvim"]
+	path = vim.symlink/bundle/coc.nvim
+	url = https://github.com/neoclide/coc.nvim.git
