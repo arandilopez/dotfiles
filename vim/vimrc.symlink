@@ -41,7 +41,7 @@ set showmatch
 set mousehide
 set list
 set list lcs=trail:.,space:·,tab:»·,eol:¬
-" set linespace=15
+set linespace=10
 
 " el plugin de lightline ya pone el estatus chido
 set noshowmode
@@ -62,7 +62,11 @@ set smartcase
 set guicursor+=i:hor1-blinkwait0,r:hor1
 " Las @ es lo mejor de esta fuente
 if has("gui_running")
- if has("gui_gtk")
+  if has("gui_gtk")
+    set guioptions-=m  "remove menu bar
+    set guioptions-=T  "remove toolbar
+    set guioptions-=r  "remove right-hand scroll bar
+    set guioptions-=L  "remove left-hand scroll bar
     set guifont=Fira\ Mono\ 14
     set gfn=Fira\ Mono\ 14
     set selection=inclusive
@@ -93,12 +97,15 @@ nnoremap vA ggVG
 
 " Ctrl+s para save file
 inoremap <C-s> <Esc>:w<CR>
+nnoremap <C-s> :w<CR>
 
 " Moverse entre los tabs
 map <C-t><up> :tabr<cr>
 map <C-t><down> :tabl<cr>
 map <C-t><left> :tabp<cr>
 map <C-t><right> :tabn<cr>
+nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
+nnoremap <C-F2> :if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>
 
 let c_space_errors = 1
 let java_space_errors = 1
@@ -130,6 +137,6 @@ let g:lightline = {
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
       \ },
       \ 'component_function': {
-      \   'gitbranch': 'gitbranch#name'
+      \   'gitbranch': 'fugitive#head'
       \ },
       \ }
