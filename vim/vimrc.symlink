@@ -67,11 +67,11 @@ set guicursor+=i:hor1-blinkwait0,r:hor1
 set updatetime=300
 " Las @ es lo mejor de esta fuente
 if has("gui_running")
+  set guioptions-=m  "remove menu bar
+  set guioptions-=T  "remove toolbar
+  set guioptions-=r  "remove right-hand scroll bar
+  set guioptions-=L  "remove left-hand scroll bar
   if has("gui_gtk")
-    set guioptions-=m  "remove menu bar
-    set guioptions-=T  "remove toolbar
-    set guioptions-=r  "remove right-hand scroll bar
-    set guioptions-=L  "remove left-hand scroll bar
     set guifont=Fira\ Mono\ 14
     set gfn=Fira\ Mono\ 14
     set selection=inclusive
