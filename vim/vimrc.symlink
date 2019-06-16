@@ -21,13 +21,11 @@ highlight LineNr ctermbg=none
 " identacion chida para codigo
 filetype plugin indent on
 
-let mapleader=","
-
 set timeout timeoutlen=1500
 " numero de lineas
 set number
 
-" set ruler
+set ruler
 " Set Proper Tabs
 set tabstop=2
 set shiftwidth=2
@@ -59,6 +57,10 @@ set smartcase
 
 " Enable yanking to the clipboard
 set clipboard=unnamed
+
+" Highlight search matches
+set hlsearch
+
 " Asignar el tipo de cursor al usar una interfaz grafica
 set guicursor+=i:hor1-blinkwait0,r:hor1
 " Smaller updatetime for CursorHold & CursorHoldI
@@ -79,17 +81,21 @@ if has("gui_running")
 endif
 
 " Shortcuts
+let mapleader=","
 " Habilitar nerdtree
 map <C-k><C-b> :NERDTreeToggle<CR>
 " Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
+" inoremap <silent><expr> <c-space> coc#refresh()
+
 " Moving lines up and down
-nnoremap <A-j> :m .+1<CR>==
-nnoremap <A-k> :m .-2<CR>==
-inoremap <A-j> <Esc>:m .+1<CR>==gi
-inoremap <A-k> <Esc>:m .-2<CR>==gi
-vnoremap <A-j> :m '>+1<CR>gv=gv
-vnoremap <A-k> :m '<-2<CR>gv=gv
+" Mover hacia abajo ctrl-j
+nnoremap <C-j> :m .+1<CR>==
+" Mover hacia arriba ctrl-k
+nnoremap <C-k> :m .-2<CR>==
+inoremap <C-j> <Esc>:m .+1<CR>==gi
+inoremap <C-k> <Esc>:m .-2<CR>==gi
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
 
 " Move to beginning/end of line
 nnoremap B 0
@@ -111,7 +117,8 @@ nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
 nnoremap <C-F2> :if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>
 " keymap para fugitive
 nnoremap <Leader>gs :Gtabedit :<CR>
-  
+nnoremap <Leader>gc :Gcommit :<CR>
+
 let c_space_errors = 1
 let java_space_errors = 1
 let python_space_errors = 1
@@ -125,9 +132,9 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll)$',
-  \ }
+      \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+      \ 'file': '\v\.(exe|so|dll)$',
+      \ }
 
 " Mardown stuff
 let g:vim_markdown_folding_disabled = 1
