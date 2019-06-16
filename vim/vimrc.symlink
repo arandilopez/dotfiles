@@ -1,7 +1,8 @@
 " Iniciar el manejador de plugins
 execute pathogen#infect()
 set nocompatible
-
+set noswapfile
+set encoding=utf8
 " Disable sounds
 set vb t_vb="
 set noerrorbells
