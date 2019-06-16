@@ -6,7 +6,7 @@ set encoding=utf8
 " Disable sounds
 set vb t_vb="
 set noerrorbells
-set visualbell
+set novisualbell
 
 " Iniciar la syntaxis y thema de onedark
 syntax on
