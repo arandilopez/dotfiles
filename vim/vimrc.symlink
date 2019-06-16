@@ -57,6 +57,8 @@ set ignorecase
 " Overrides ignorecase if pattern contains upcase
 set smartcase
 
+" Enable yanking to the clipboard
+set clipboard=unnamed
 " Asignar el tipo de cursor al usar una interfaz grafica
 set guicursor+=i:hor1-blinkwait0,r:hor1
 " Smaller updatetime for CursorHold & CursorHoldI
