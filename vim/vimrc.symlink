@@ -118,7 +118,7 @@ nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
 nnoremap <C-F2> :if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>
 " keymap para fugitive
 nnoremap <Leader>gs :Gtabedit :<CR>
-nnoremap <Leader>gc :Gcommit :<CR>
+nnoremap <Leader>gc :Gcommit<CR>
 
 let c_space_errors = 1
 let java_space_errors = 1
