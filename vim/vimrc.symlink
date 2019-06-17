@@ -142,6 +142,7 @@ let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_conceal = 0
 
+let g:EditorConfig_exclude_patterns = ['fugitive://.\*']
 " config de lightline, muestra el nombre del branch igual
 let g:lightline = {
       \ 'colorscheme': 'onedark',
