@@ -56,8 +56,8 @@ set ignorecase
 set smartcase
 
 " Enable yanking to the clipboard
-set clipboard=unnamed
-
+" set clipboard=unnamed
+set clipboard=unnamedplus
 " Highlight search matches
 set hls
 set is
