@@ -59,7 +59,8 @@ set smartcase
 set clipboard=unnamed
 
 " Highlight search matches
-set hlsearch
+set hls
+set is
 
 " Asignar el tipo de cursor al usar una interfaz grafica
 set guicursor+=i:hor1-blinkwait0,r:hor1
