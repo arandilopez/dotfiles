@@ -33,7 +33,7 @@ set shiftround
 set smarttab
 set expandtab
 
-set cursorline
+" set cursorline
 set showmatch
 set mousehide
 set list
@@ -59,7 +59,7 @@ set smartcase
 " set clipboard=unnamed
 set clipboard=unnamedplus
 " Highlight search matches
-set hls
+" set hls
 set is
 
 " Asignar el tipo de cursor al usar una interfaz grafica
@@ -119,6 +119,8 @@ nnoremap <C-F2> :if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>
 " keymap para fugitive
 nnoremap <Leader>gs :Gtabedit :<CR>
 nnoremap <Leader>gc :Gcommit<CR>
+
+nnoremap <Leader>t :WakaTimeToday<CR>
 
 let c_space_errors = 1
 let java_space_errors = 1
