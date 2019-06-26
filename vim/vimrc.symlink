@@ -126,7 +126,7 @@ nnoremap <Leader>gs :Gtabedit :<CR>
 nnoremap <Leader>gc :Gcommit<CR>
 nnoremap <Leader>gp :Gpush<CR>
 
-nnoremap <Leader>t :WakaTimeToday<CR>
+nnoremap <Leader>wt :WakaTimeToday<CR>
 
 " ctrlp settings
 let g:ctrlp_map = '<C-p>'
