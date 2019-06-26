@@ -112,6 +112,7 @@ nnoremap vA ggVG
 " Ctrl+s para save file
 inoremap <C-s> <Esc>:w<CR>
 nnoremap <C-s> :w<CR>
+nnoremap <C-S-D> yyp
 
 " Moverse entre los tabs
 map <C-t><up> :tabr<cr>
