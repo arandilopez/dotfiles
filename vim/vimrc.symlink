@@ -130,6 +130,7 @@ nnoremap <Leader>wt :WakaTimeToday<CR>
 
 " Clean opne buffers and delete them from unlisted
 nnoremap <Leader>q :Bwipeout<CR>
+nnoremap <Leader>qa :bufdo :Bwipeout<CR>
 
 " ctrlp settings
 let g:ctrlp_map = '<C-p>'
