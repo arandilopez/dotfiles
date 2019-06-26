@@ -79,3 +79,15 @@
 [submodule "vim.symlink/bundle/vim-bbye"]
 	path = vim.symlink/bundle/vim-bbye
 	url = https://github.com/moll/vim-bbye
+[submodule "vim.symlink/bundle/vim-ruby"]
+	path = vim.symlink/bundle/vim-ruby
+	url = https://github.com/vim-ruby/vim-ruby.git
+[submodule "vim.symlink/bundle/vim-rails"]
+	path = vim.symlink/bundle/vim-rails
+	url = https://github.com/tpope/vim-rails.git
+[submodule "vim.symlink/bundle/vim-rake"]
+	path = vim.symlink/bundle/vim-rake
+	url = https://github.com/tpope/vim-rake.git
+[submodule "vim.symlink/bundle/vim-bundler"]
+	path = vim.symlink/bundle/vim-bundler
+	url = https://github.com/tpope/vim-bundler.git
