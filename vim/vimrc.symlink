@@ -7,25 +7,27 @@ set encoding=utf8
 set vb t_vb="
 set noerrorbells
 set visualbell
-
+if has('termguicolors')
+  set termguicolors
+endif
 " Iniciar la syntaxis y thema de onedark
 syntax on
 " let g:onedark_terminal_italics=1
 colorscheme onedark
 
-" Quitar el color del background
-highlight Normal ctermbg=none 
-highlight SignColumn ctermbg=none 
-highlight LineNr ctermbg=none 
-
 " identacion chida para codigo
 filetype plugin indent on
 
 set timeout timeoutlen=1500
+
+" Quitar el color del background
+" highlight Normal ctermbg=none 
+" highlight SignColumn ctermbg=none 
+" highlight LineNr ctermbg=none 
+
 " numero de lineas
 set number
 
-set ruler
 " Set Proper Tabs
 set tabstop=2
 set shiftwidth=2
@@ -36,27 +38,23 @@ set expandtab
 " set cursorline
 set showmatch
 set mousehide
+" Caracteres para mostar espacios, tabs y fin de linea
 set list
 set list lcs=trail:·,space:·,tab:»·,eol:¬
+" Tamaño de linea, se ve mejor en gui
 set linespace=10
-
 " el plugin de lightline ya pone el estatus chido
 set noshowmode
 set laststatus=2
-
 " ya la tecla backspace funciona para borrar
 set backspace=2
 
 set wildignore+=*/tmp/*,*/vendor/*,*/node_modules/*,*/.git/*,*.so,*.swp,*.zip
-
 " Case Insensitivity Pattern Matching
 set ignorecase
-
 " Overrides ignorecase if pattern contains upcase
 set smartcase
-
 " Highlight search matches
-" set hls
 set is
 
 " Asignar el tipo de cursor al usar una interfaz grafica
@@ -71,11 +69,11 @@ if has("gui_running")
   set guioptions-=L  "remove left-hand scroll bar
   if has("gui_gtk")
     set guifont=Fira\ Mono\ 14
-    " set gfn=Fira\ Mono\ 14
-    " set selection=inclusive
   elseif has("gui_macvim")
     set guifont=Fira\ Mono:h16
   endif
+else
+  set t_Co=256
 endif
 
 " Enable yanking to the clipboard
@@ -129,7 +127,7 @@ nnoremap <Leader>gp :Gpush<CR>
 
 nnoremap <Leader>wt :WakaTimeToday<CR>
 
-" Clean opne buffers and delete them from unlisted
+" Clean open buffers and delete them from unlisted
 nnoremap <Leader>q :Bwipeout<CR>
 nnoremap <Leader>qa :bufdo :Bwipeout<CR>
 
