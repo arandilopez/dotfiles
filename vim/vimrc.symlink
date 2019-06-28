@@ -7,9 +7,11 @@ set encoding=utf8
 set vb t_vb="
 set noerrorbells
 set visualbell
+
 if has('termguicolors')
   set termguicolors
 endif
+
 " Iniciar la syntaxis y thema de onedark
 syntax on
 let g:onedark_termcolors=256
@@ -20,11 +22,6 @@ colorscheme onedark
 filetype plugin indent on
 
 set timeout timeoutlen=1500
-
-" Quitar el color del background
-" highlight Normal ctermbg=none 
-" highlight SignColumn ctermbg=none 
-" highlight LineNr ctermbg=none 
 
 " numero de lineas
 set number
