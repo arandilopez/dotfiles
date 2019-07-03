@@ -12,14 +12,14 @@ if has('termguicolors')
   set termguicolors
 endif
 
+" identacion chida para codigo
+filetype plugin indent on
+
 " Iniciar la syntaxis y thema de onedark
 syntax on
 let g:onedark_termcolors=256
 " let g:onedark_terminal_italics=1
 colorscheme onedark
-
-" identacion chida para codigo
-filetype plugin indent on
 
 set timeout timeoutlen=1500
 
@@ -54,7 +54,7 @@ set ignorecase
 set smartcase
 " Highlight search matches
 set is
-
+set sc " Show count of selected lines or chars
 " Asignar el tipo de cursor al usar una interfaz grafica
 set guicursor+=i:hor1-blinkwait0,r:hor1
 " Smaller updatetime for CursorHold & CursorHoldI
