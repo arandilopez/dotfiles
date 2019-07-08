@@ -1,8 +1,9 @@
 " Iniciar el manejador de plugins
 execute pathogen#infect()
-set nocompatible
-set noswapfile
-set encoding=utf8
+" Settings de VIM
+set nocompatible " No compatible con vi
+set noswapfile " Sin archivos fantasma
+set encoding=utf8 " siempre en utf8
 " Disable sounds
 set vb t_vb="
 set noerrorbells
