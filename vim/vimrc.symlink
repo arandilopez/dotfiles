@@ -160,6 +160,9 @@ let ruby_space_errors = 1
 let php_sql_query = 1
 
 let g:EditorConfig_exclude_patterns = ['fugitive://.\*']
+
+" Use ag for ack search
+let g:ackprg = 'ag --vimgrep'
 " config de lightline, muestra el nombre del branch igual
 let g:lightline = {
       \ 'colorscheme': 'onedark',
