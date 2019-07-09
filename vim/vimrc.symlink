@@ -27,6 +27,8 @@ set timeout timeoutlen=1500
 " numero de lineas
 set number
 
+set wrap
+set colorcolumn=120 " Color sobre la columna 120 para marcar que la linea ya es muy larga
 " Set Proper Tabs
 set tabstop=2
 set shiftwidth=2
