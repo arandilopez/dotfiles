@@ -62,6 +62,8 @@ set sc " Show count of selected lines or chars
 set guicursor+=i:hor1-blinkwait0,r:hor1
 " Smaller updatetime for CursorHold & CursorHoldI
 set updatetime=300
+" Switch buffer con tabs al usar vimgrep oa algo mas sobre el quickfix list
+set switchbuf+=usetab,newtab
 " Las @ es lo mejor de esta fuente
 if has("gui_running")
   set guioptions-=m  "remove menu bar
@@ -120,7 +122,7 @@ map <C-t><left> :tabp<cr>
 map <C-t><right> :tabn<cr>
 nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
 nnoremap <C-F2> :if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>
-
+nnoremap <Leader>to :tabonly<CR>
 " keymap para fugitive
 nnoremap <Leader>gs :Gtabedit :<CR>
 nnoremap <Leader>gc :Gcommit<CR>
