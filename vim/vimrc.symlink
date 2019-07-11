@@ -3,6 +3,7 @@ execute pathogen#infect()
 " Settings de VIM
 set nocompatible " No compatible con vi
 set noswapfile " Sin archivos fantasma
+set autoread " Leer el archivo automaticamente si sufre cambios externos de vim
 set encoding=utf8 " siempre en utf8
 " Disable sounds
 set vb t_vb="
