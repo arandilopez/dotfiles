@@ -57,7 +57,8 @@ set ignorecase
 " Overrides ignorecase if pattern contains upcase
 set smartcase
 " Highlight search matches
-set is
+set hlsearch
+set incsearch
 set sc " Show count of selected lines or chars
 " Asignar el tipo de cursor al usar una interfaz grafica
 set guicursor+=i:hor1-blinkwait0,r:hor1
@@ -65,12 +66,18 @@ set guicursor+=i:hor1-blinkwait0,r:hor1
 set updatetime=300
 " Switch buffer con tabs al usar vimgrep oa algo mas sobre el quickfix list
 set switchbuf+=usetab,newtab
+
+set splitbelow "Make splits default to below...
+set splitright "And to the right. This feels more natural.
 " Las @ es lo mejor de esta fuente
 if has("gui_running")
+  " set guioptions-=e  "remove gui tabs
   set guioptions-=m  "remove menu bar
   set guioptions-=T  "remove toolbar
   set guioptions-=r  "remove right-hand scroll bar
+  set guioptions-=R
   set guioptions-=L  "remove left-hand scroll bar
+  set guioptions-=l
   if has("gui_gtk")
     set guifont=Fira\ Mono\ 14
   elseif has("gui_macvim")
@@ -134,6 +141,10 @@ nnoremap <Leader>wt :WakaTimeToday<CR>
 " Clean open buffers and delete them from unlisted
 nnoremap <Leader>q :Bwipeout<CR>
 nnoremap <Leader>qa :bufdo :Bwipeout<CR>
+nmap <Leader><space> :nohlsearch<cr>
+"Sort PHP use statements
+"http://stackoverflow.com/questions/11531073/how-do-you-sort-a-range-of-lines-by-length
+vmap <Leader>su ! awk '{ print length(), $0 \| "sort -n \| cut -d\\  -f2-" }'<cr>
 
 " Ctrlp custom open file logic
 function! OpenFileInEmptyBufferOrNewTab(action, line)
@@ -147,8 +158,8 @@ function! OpenFileInEmptyBufferOrNewTab(action, line)
   endif
   call call('ctrlp#acceptfile', [action, a:line])
 endfunction
-let g:ctrlp_open_func = { 'files': 'OpenFileInEmptyBufferOrNewTab' }
 " ctrlp settings
+let g:ctrlp_open_func = { 'files': 'OpenFileInEmptyBufferOrNewTab' }
 let g:ctrlp_map = '<C-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
@@ -194,3 +205,9 @@ let g:lightline = {
       \   'gitbranch': 'fugitive#head'
       \ },
       \ }
+
+augroup autosourcing
+  autocmd!
+  autocmd BufWritePost .vimrc source %
+augroup END
+autocmd BufWritePre * %s/\s\+$//e " Delete trailing spaces before save
