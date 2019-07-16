@@ -191,6 +191,9 @@ let ruby_space_errors = 1
 let php_sql_query = 1
 
 let g:EditorConfig_exclude_patterns = ['fugitive://.\*']
+" GVim
+let g:indentLine_color_gui = '#3B4048'
+let g:indentLine_char = '┊'
 
 " Use ag for ack search
 let g:ackprg = 'ag --vimgrep'
@@ -206,8 +209,8 @@ let g:lightline = {
       \ },
       \ }
 
-augroup autosourcing
-  autocmd!
-  autocmd BufWritePost .vimrc source %
-augroup END
+" augroup autosourcing
+"   autocmd!
+"   autocmd BufWritePost .vimrc source %
+" augroup END
 autocmd BufWritePre * %s/\s\+$//e " Delete trailing spaces before save
