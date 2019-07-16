@@ -71,7 +71,7 @@ set splitbelow "Make splits default to below...
 set splitright "And to the right. This feels more natural.
 " Las @ es lo mejor de esta fuente
 if has("gui_running")
-  " set guioptions-=e  "remove gui tabs
+  set guioptions-=e  "remove gui tabs
   set guioptions-=m  "remove menu bar
   set guioptions-=T  "remove toolbar
   set guioptions-=r  "remove right-hand scroll bar
