@@ -159,6 +159,7 @@ function! OpenFileInEmptyBufferOrNewTab(action, line)
   call call('ctrlp#acceptfile', [action, a:line])
 endfunction
 " ctrlp settings
+let g:ctrlp_open_new_file = 't'
 let g:ctrlp_open_func = { 'files': 'OpenFileInEmptyBufferOrNewTab' }
 let g:ctrlp_map = '<C-p>'
 let g:ctrlp_cmd = 'CtrlP'
