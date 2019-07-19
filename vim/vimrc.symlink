@@ -181,9 +181,7 @@ let g:ctrlp_custom_ignore = {
 " The Silver Searcher
 if executable('ag')
   " Use ag over grep
-  " set grepprg=ag\ --nogroup\ --nocolor
-  set grepprg=ag\ --vimgrep
-
+  set grepprg=ag\ --vimgrep\ $* set grepformat=%f:%l:%c:%m
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command = 'ag %s -l -i --nocolor -g ""'
 
@@ -212,8 +210,6 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.\*']
 let g:indentLine_color_gui = '#3B4048'
 let g:indentLine_char = '┊'
 
-" Use ag for ack search
-let g:ackprg = 'ag --vimgrep'
 " config de lightline, muestra el nombre del branch igual
 let g:lightline = {
       \ 'colorscheme': 'onedark',
