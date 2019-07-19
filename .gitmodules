@@ -97,6 +97,3 @@
 [submodule "vim.symlink/bundle/vim-devicons"]
 	path = vim.symlink/bundle/vim-devicons
 	url = https://github.com/ryanoasis/vim-devicons.git
-[submodule "vim.symlink/bundle/vim-nerd-tree-syntax-highlight"]
-	path = vim.symlink/bundle/vim-nerd-tree-syntax-highlight
-	url = https://github.com/tiagofumo/vim-nerdtree-syntax-highlight.git
