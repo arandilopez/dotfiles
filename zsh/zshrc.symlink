@@ -7,6 +7,10 @@ export DOCUMENTS_PATH=~/Documents
 export PROJECTS=~/Code
 export ATOM_REPOS_HOME=$PROJECTS
 
+# Tilix fix
+if [[ $TILIX_ID ]]; then
+  source /etc/profile.d/vte.sh
+fi
 # Stash your environment variables in ~/.localrc. This means they'll stay out
 # of your main dotfiles repository (which may be public, like this one), but
 # you'll have access to them in your scripts.
