@@ -135,6 +135,10 @@ nnoremap <Leader>to :tabonly<CR>
 nnoremap <Leader>gs :Gtabedit :<CR>
 nnoremap <Leader>gc :Gcommit<CR>
 nnoremap <Leader>gp :Gpush<CR>
+" Fugitive Conflict Resolution
+nnoremap <leader>gd :Gvdiff<CR>
+nnoremap gdh :diffget //2<CR>
+nnoremap gdl :diffget //3<CR>
 
 nnoremap <Leader>wt :WakaTimeToday<CR>
 
