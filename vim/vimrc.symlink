@@ -9,14 +9,11 @@ set encoding=utf8 " siempre en utf8
 set vb t_vb="
 set noerrorbells
 set visualbell
-
 if has('termguicolors')
   set termguicolors
 endif
-
 " identacion chida para codigo
 filetype plugin indent on
-
 " Iniciar la syntaxis y thema de onedark
 syntax on
 let g:onedark_termcolors=256
@@ -24,10 +21,8 @@ let g:onedark_termcolors=256
 colorscheme onedark
 
 set timeout timeoutlen=1500
-
 " numero de lineas
 set number
-
 set wrap
 set colorcolumn=120 " Color sobre la columna 120 para marcar que la linea ya es muy larga
 " Set Proper Tabs
@@ -36,7 +31,6 @@ set shiftwidth=2
 set shiftround
 set smarttab
 set expandtab
-
 " set cursorline
 set showmatch
 set mousehide
@@ -50,7 +44,6 @@ set noshowmode
 set laststatus=2
 " ya la tecla backspace funciona para borrar
 set backspace=2
-
 set wildignore+=*/tmp/*,*/vendor/*,*/node_modules/*,*/.git/*,*/log/*,*.so,*.swp,*.zip
 " Case Insensitivity Pattern Matching
 set ignorecase
@@ -66,7 +59,6 @@ set guicursor+=i:hor1-blinkwait0,r:hor1
 set updatetime=300
 " Switch buffer con tabs al usar vimgrep oa algo mas sobre el quickfix list
 set switchbuf+=usetab,newtab
-
 set splitbelow "Make splits default to below...
 set splitright "And to the right. This feels more natural.
 " Las @ es lo mejor de esta fuente
@@ -98,9 +90,6 @@ endif
 let mapleader=","
 " Habilitar nerdtree
 map <C-k><C-b> :NERDTreeToggle<CR>
-" Use <c-space> to trigger completion.
-" inoremap <silent><expr> <c-space> coc#refresh()
-
 " Moving lines up and down
 " Mover hacia abajo ctrl-j
 nnoremap <C-j> :m .+1<CR>==
@@ -110,19 +99,15 @@ inoremap <C-j> <Esc>:m .+1<CR>==gi
 inoremap <C-k> <Esc>:m .-2<CR>==gi
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
-
 " Move to beginning/end of line
 nnoremap B 0
 nnoremap E $
-
 " Select all text
 nnoremap vA ggVG
-
 " Ctrl+s para save file
 inoremap <C-s> <Esc>:w<CR>
 nnoremap <C-s> :w<CR>
-nnoremap <C-S-D> yyp
-
+nnoremap <C-d> yyp
 " Moverse entre los tabs
 map <C-t><up> :tabr<cr>
 map <C-t><down> :tabl<cr>
@@ -139,9 +124,9 @@ nnoremap <Leader>gp :Gpush<CR>
 nnoremap <leader>gd :Gvdiff<CR>
 nnoremap gdh :diffget //2<CR>
 nnoremap gdl :diffget //3<CR>
-
-nnoremap <Leader>wt :WakaTimeToday<CR>
-
+" Leader mappings
+nnoremap <Leader>wtt :WakaTimeToday<CR>
+nnoremap <Leader>w :tabclose<CR>
 " Clean open buffers and delete them from unlisted
 nnoremap <Leader>q :Bwipeout<CR>
 nnoremap <Leader>qa :bufdo :Bwipeout<CR>
@@ -186,32 +171,26 @@ let g:ctrlp_custom_ignore = {
 if executable('ag')
   " Use ag over grep
   set grepprg=ag\ --vimgrep
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l -i --nocolor -g ""'
-
   " bind \ (backward slash) to grep shortcut
   command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-  nnoremap \ :Ag<Space>-i<Space>
+  nnoremap \ :Ag<SPACE>
 endif
 
 " Mardown stuff
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_conceal = 0
-
 let c_space_errors = 1
 let java_space_errors = 1
 let python_space_errors = 1
 let ruby_space_errors = 1
-
 " PHP stuff
 let php_sql_query = 1
-
 let g:EditorConfig_exclude_patterns = ['fugitive://.\*']
 " GVim
 let g:indentLine_color_gui = '#3B4048'
-let g:indentLine_char = '┊'
-
+" let g:indentLine_char = '┊'
+let g:indentLine_char = '|'
 " config de lightline, muestra el nombre del branch igual
 let g:lightline = {
       \ 'colorscheme': 'onedark',
@@ -224,8 +203,4 @@ let g:lightline = {
       \ },
       \ }
 
-" augroup autosourcing
-"   autocmd!
-"   autocmd BufWritePost .vimrc source %
-" augroup END
 autocmd BufWritePre * %s/\s\+$//e " Delete trailing spaces before save
