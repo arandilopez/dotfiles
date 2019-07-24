@@ -94,3 +94,9 @@
 [submodule "vim.symlink/bundle/indentLine.vim"]
 	path = vim.symlink/bundle/indentLine.vim
 	url = https://github.com/Yggdroot/indentLine.git
+[submodule "vim.symlink/bundle/vim-laravel"]
+	path = vim.symlink/bundle/vim-laravel
+	url = https://github.com/noahfrederick/vim-laravel.git
+[submodule "vim.symlink/bundle/vim-composer"]
+	path = vim.symlink/bundle/vim-composer
+	url = https://github.com/noahfrederick/vim-composer.git
