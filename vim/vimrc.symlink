@@ -87,6 +87,8 @@ else
 endif
 
 " Shortcuts
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
 let mapleader=","
 " Habilitar nerdtree
 map <C-k><C-b> :NERDTreeToggle<CR>
