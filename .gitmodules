@@ -100,3 +100,6 @@
 [submodule "vim.symlink/bundle/vim-composer"]
 	path = vim.symlink/bundle/vim-composer
 	url = https://github.com/noahfrederick/vim-composer.git
+[submodule "vim.symlink/bundle/vim-eunuch"]
+	path = vim.symlink/bundle/vim-eunuch
+	url = https://github.com/tpope/vim-eunuch.git
