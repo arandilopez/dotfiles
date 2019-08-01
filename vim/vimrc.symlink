@@ -186,6 +186,7 @@ let ruby_space_errors = 1
 " PHP stuff
 let php_sql_query = 1
 let g:EditorConfig_exclude_patterns = ['fugitive://.\*']
+let g:fugitive_summary_format = '[%an] %s - %d (%cr)'
 " GVim
 let g:indentLine_color_gui = '#3B4048'
 " let g:indentLine_char = '┊'
