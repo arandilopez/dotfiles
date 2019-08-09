@@ -118,6 +118,13 @@ inoremap <C-j> <Esc>:m .+1<CR>==gi
 inoremap <C-k> <Esc>:m .-2<CR>==gi
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
+
+" Ctrl-[/] deletes blank line below/above, and Alt-[/] inserts.
+nnoremap <silent><C-[> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
+nnoremap <silent><C-]> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
+nnoremap <silent><A-[> :set paste<CR>m`o<Esc>``:set nopaste<CR>
+nnoremap <silent><A-]> :set paste<CR>m`O<Esc>``:set nopaste<CR>
+
 " Select all text
 nnoremap vA ggVG
 " Ctrl+s para save file
