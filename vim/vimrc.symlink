@@ -228,3 +228,6 @@ let g:lightline = {
       \ }
 
 autocmd BufWritePre * %s/\s\+$//e " Delete trailing spaces before save
+
+command CopyFilePath silent! let @+ = expand("%:p")
+
