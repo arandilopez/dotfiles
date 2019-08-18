@@ -130,6 +130,7 @@ nnoremap vA ggVG
 inoremap <C-s> <Esc>:w<CR>
 nnoremap <C-s> :w<CR>
 nnoremap <C-d> yyp
+vnoremap <C-d> ykp
 " Moverse entre los tabs
 map <C-t><up> :tabr<cr>
 map <C-t><down> :tabl<cr>
