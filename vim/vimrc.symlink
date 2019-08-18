@@ -173,6 +173,7 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.\*']
 let g:fugitive_summary_format = '[%an] %s - %d (%cr)'
 " GVim
 let g:indentLine_color_gui = '#3B4048'
+let g:indentLine_fileTypeExclude = [ 'startify' ]
 " let g:indentLine_char = '┊'
 let g:indentLine_char = '|'
 " config de lightline, muestra el nombre del branch igual

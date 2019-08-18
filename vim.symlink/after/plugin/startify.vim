@@ -34,7 +34,6 @@ let g:startify_change_to_vcs_root = 1
 " let g:startify_session_autoload = 1
 let g:startify_update_oldfiles = 1
 let g:startify_use_env = 1
-let g:indentLine_fileTypeExclude = [ 'startify' ]
 
 hi! link StartifyHeader Title
 hi! link StartifyFile Directory
