@@ -38,7 +38,7 @@ set mousehide
 set list
 set list lcs=trail:·,space:·,tab:»·,eol:¬
 " Tamaño de linea, se ve mejor en gui
-set linespace=10
+" set linespace=10
 " el plugin de lightline ya pone el estatus chido
 set noshowmode
 set laststatus=2
@@ -92,9 +92,8 @@ if has("gui_running")
   elseif has("gui_macvim")
     set guifont=Fira\ Mono:h16
   endif
-else
-  set t_Co=256
 endif
+set t_Co=256
 
 " Enable yanking to the clipboard
 if has("macunix")
