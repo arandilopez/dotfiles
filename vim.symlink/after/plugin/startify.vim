@@ -19,7 +19,12 @@ let g:startify_ascii = [
       \"             ---`-'                   ",
       \]
 
-let g:startify_custom_header = 'map(g:startify_ascii + startify#fortune#boxed(), "\"     \".v:val")'
+let g:startify_custom_header = 'map(g:startify_ascii + startify#fortune#quote(), "\"   \".v:val")'
+let g:startify_lists = [
+      \ { 'header': ['   MRU'],            'type': 'files' },
+      \ { 'header': ['   MRU '. getcwd()], 'type': 'dir' },
+      \ ]
+
 let g:startify_skiplist = [
       \ 'COMMIT_EDITMSG',
       \ '^/tmp',
@@ -27,13 +32,13 @@ let g:startify_skiplist = [
       \ 'bundle/.*/doc',
       \ ]
 
-let g:startify_padding_left = 5
+let g:startify_padding_left = 3
 let g:startify_relative_path = 1
 let g:startify_fortune_use_unicode = 1
 let g:startify_change_to_vcs_root = 1
 " let g:startify_session_autoload = 1
 let g:startify_update_oldfiles = 1
-let g:startify_use_env = 1
+let g:startify_use_env = 0
 
 hi! link StartifyHeader Title
 hi! link StartifyFile Directory
