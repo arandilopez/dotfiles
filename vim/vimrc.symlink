@@ -119,18 +119,21 @@ vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
 
 " Ctrl-[/] deletes blank line below/above, and Alt-[/] inserts.
-nnoremap <silent><C-[> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
-nnoremap <silent><C-]> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
-nnoremap <silent><A-[> :set paste<CR>m`o<Esc>``:set nopaste<CR>
-nnoremap <silent><A-]> :set paste<CR>m`O<Esc>``:set nopaste<CR>
+nnoremap <silent><C-[> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
+nnoremap <silent><C-]> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
+nnoremap <silent><A-[> :set paste<CR>m`O<Esc>``:set nopaste<CR>
+nnoremap <silent><A-]> :set paste<CR>m`o<Esc>``:set nopaste<CR>
 
 " Select all text
 nnoremap vA ggVG
 " Ctrl+s para save file
 inoremap <C-s> <Esc>:w<CR>
 nnoremap <C-s> :w<CR>
+" Ctrl-D para duplicar linea o lineas en visual mode
 nnoremap <C-d> yyp
 vnoremap <C-d> ykp
+" Insertar un spacio en el cursor
+nnoremap ss <Esc>i<Space><Esc>
 " Moverse entre los tabs
 map <C-t><up> :tabr<cr>
 map <C-t><down> :tabl<cr>
