@@ -21,8 +21,8 @@ let g:startify_ascii = [
 
 let g:startify_custom_header = 'map(g:startify_ascii + startify#fortune#quote(), "\"   \".v:val")'
 let g:startify_lists = [
-      \ { 'header': ['   MRU'],            'type': 'files' },
       \ { 'header': ['   MRU '. getcwd()], 'type': 'dir' },
+      \ { 'header': ['   MRU'],            'type': 'files' },
       \ ]
 
 let g:startify_skiplist = [
