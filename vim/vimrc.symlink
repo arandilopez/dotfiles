@@ -192,6 +192,6 @@ let g:lightline = {
       \ }
 
 autocmd BufWritePre * %s/\s\+$//e " Delete trailing spaces before save
-
+au FocusLost * silent! wa " save all buffers when focus is lost
 command CopyFilePath silent! let @+ = expand("%:p")
 
