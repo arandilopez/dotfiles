@@ -165,7 +165,8 @@ let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_conceal_code_blocks = 0
 let g:vim_markdown_no_extensions_in_markdown = 1
-
+" Tex/Latex
+let g:tex_conceal = ""
 let c_space_errors = 1
 let java_space_errors = 1
 let python_space_errors = 1
