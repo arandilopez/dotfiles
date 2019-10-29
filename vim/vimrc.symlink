@@ -192,6 +192,7 @@ let g:lightline = {
       \ },
       \ }
 
+autocmd FileType php setlocal tabstop=4 shiftwidth=4 softtabstop=4
 autocmd BufWritePre * %s/\s\+$//e " Delete trailing spaces before save
 au FocusLost * silent! wa " save all buffers when focus is lost
 command CopyFilePath silent! let @+ = expand("%:p")
