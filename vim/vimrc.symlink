@@ -16,9 +16,9 @@ endif
 filetype plugin indent on
 " Iniciar la syntaxis y thema de onedark
 syntax on
-let g:onedark_termcolors=256
+" let g:onedark_termcolors=256
 " let g:onedark_terminal_italics=1
-colorscheme onedark
+colorscheme dracula
 
 set timeout timeoutlen=1500
 " numero de lineas
