@@ -182,7 +182,7 @@ let g:indentLine_fileTypeExclude = [ 'startify' ]
 let g:indentLine_char = '|'
 " config de lightline, muestra el nombre del branch igual
 let g:lightline = {
-      \ 'colorscheme': 'onedark',
+      \ 'colorscheme': 'dracula',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
