@@ -110,7 +110,7 @@ let mapleader=","
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 " Habilitar nerdtree
-map <C-k><C-b> :NERDTreeToggle<CR>
+map <silent><C-k><C-b> :NERDTreeToggle<CR>
 " Moving lines up and down
 " Mover hacia abajo ctrl-j
 nnoremap <C-j> :m .+1<CR>==
