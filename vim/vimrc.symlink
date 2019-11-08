@@ -45,6 +45,7 @@ set laststatus=2
 " ya la tecla backspace funciona para borrar
 set backspace=2
 set wildignore+=*/tmp/*,*/vendor/*,*/node_modules/*,*/.git/*,*/log/*,*.so,*.swp,*.zip
+set wildmenu
 " Case Insensitivity Pattern Matching
 set ignorecase
 " Overrides ignorecase if pattern contains upcase
