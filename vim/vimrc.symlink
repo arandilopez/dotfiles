@@ -142,14 +142,6 @@ map <C-t><right> :tabn<cr>
 nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
 nnoremap <C-F2> :if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>
 nnoremap <Leader>to :tabonly<CR>
-" keymap para fugitive
-nnoremap <Leader>gs :Gtabedit :<CR>
-nnoremap <Leader>gc :Gcommit<CR>
-nnoremap <Leader>gp :Gpush<CR>
-" Fugitive Conflict Resolution
-nnoremap <leader>gd :Gvdiff<CR>
-nnoremap gdh :diffget //2<CR>
-nnoremap gdl :diffget //3<CR>
 " Leader mappings
 nnoremap <Leader>wtt :WakaTimeToday<CR>
 nnoremap <Leader>w :tabclose<CR>
