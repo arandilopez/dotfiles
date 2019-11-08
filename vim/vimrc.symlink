@@ -136,10 +136,8 @@ map <C-t><left> :tabp<cr>
 map <C-t><right> :tabn<cr>
 nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
 nnoremap <C-F2> :if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>
-nnoremap <Leader>to :tabonly<CR>
 " Leader mappings
 nnoremap <Leader>wtt :WakaTimeToday<CR>
-nnoremap <Leader>w :tabclose<CR>
 " Clean open buffers and delete them from unlisted
 nnoremap <Leader>q :Bwipeout<CR>
 nnoremap <Leader>qa :bufdo :Bwipeout<CR>:Startify<CR>
