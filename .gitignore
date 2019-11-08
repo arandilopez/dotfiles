@@ -13,5 +13,6 @@ atom.symlink/linter-config.json
 atom.symlink/package-deps-state.json
 atom.symlink/.atom-socket-secret-*
 git/gitconfig.local.symlink
-
+/vim.symlink/bundle/
+!/vim.symlink/bundle/.keep
 cache/
