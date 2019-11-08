@@ -72,7 +72,7 @@
     telemetryConsent: "limited"
     themes: [
       "nucleus-dark-ui"
-      "one-dark-syntax"
+      "dracula-syntax"
     ]
     uriHandlerRegistration: "always"
   docblockr:
