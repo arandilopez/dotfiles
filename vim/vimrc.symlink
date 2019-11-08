@@ -1,7 +1,52 @@
 " Iniciar el manejador de plugins
-execute pathogen#infect()
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'dracula/vim'
+Plugin 'itchyny/lightline.vim'
+Plugin 'itchyny/vim-gitbranch'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'honza/vim-snippets'
+Plugin 'garbas/vim-snipmate'
+Plugin 'tomtom/tlib_vim'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-commentary'
+Plugin 'https://tpope.io/vim/surround'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'tpope/vim-endwise'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'wakatime/vim-wakatime'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'joshdick/onedark.vim'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'zsh-users/zsh-autosuggestions'
+Plugin 'tpope/vim-fugitive'
+Plugin 'neoclide/coc.nvim'
+Plugin 'tpope/vim-surround'
+Plugin 'moll/vim-bbye'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-rake'
+Plugin 'tpope/vim-bundler'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'Yggdroot/indentLine'
+Plugin 'noahfrederick/vim-laravel'
+Plugin 'noahfrederick/vim-composer'
+Plugin 'tpope/vim-eunuch'
+Plugin 'mhinz/vim-startify'
+Plugin 'rhysd/vim-textobj-ruby'
+Plugin 'kana/vim-textobj-user'
+" Plugin 'file:///home/gmarik/path/to/plugin'
+call vundle#end()            " required
 " Settings de VIM
-set nocompatible " No compatible con vi
 set noswapfile " Sin archivos fantasma
 set autoread " Leer el archivo automaticamente si sufre cambios externos de vim
 set encoding=utf8 " siempre en utf8
@@ -183,4 +228,3 @@ autocmd FileType php setlocal tabstop=4 shiftwidth=4 softtabstop=4
 autocmd BufWritePre * %s/\s\+$//e " Delete trailing spaces before save
 au FocusLost * silent! wa " save all buffers when focus is lost
 command CopyFilePath silent! let @+ = expand("%:p")
-
