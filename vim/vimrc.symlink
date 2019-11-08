@@ -105,6 +105,9 @@ else
   set clipboard=unnamedplus
 endif
 
+" Tags for navigations
+set tags+=./tags " use local tags in project
+
 let mapleader=","
 " Shortcuts
 " Use <c-space> to trigger completion.
