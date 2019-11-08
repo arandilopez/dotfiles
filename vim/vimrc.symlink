@@ -77,8 +77,6 @@ set signcolumn=yes
 " Disable concealing in all languages, eg: md and tex
 set conceallevel=0
 
-" Switch buffer con tabs al usar vimgrep oa algo mas sobre el quickfix list
-set switchbuf+=usetab,newtab
 set splitbelow "Make splits default to below...
 set splitright "And to the right. This feels more natural.
 " Las @ es lo mejor de esta fuente
