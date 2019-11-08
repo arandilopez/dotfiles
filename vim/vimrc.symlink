@@ -116,22 +116,17 @@ inoremap <silent><expr> <c-space> coc#refresh()
 map <silent><C-k><C-b> :NERDTreeToggle<CR>
 " Moving lines up and down
 " Mover hacia abajo ctrl-j
-nnoremap <C-j> :m .+1<CR>==
+nnoremap glj :m+<CR>==
 " Mover hacia arriba ctrl-k
-nnoremap <C-k> :m .-2<CR>==
-inoremap <C-j> <Esc>:m .+1<CR>==gi
-inoremap <C-k> <Esc>:m .-2<CR>==gi
-vnoremap <C-j> :m '>+1<CR>gv=gv
-vnoremap <C-k> :m '<-2<CR>gv=gv
+nnoremap glk :m-2<CR>==
 
-" Select all text
-nnoremap vA ggVG
+" Re-indent all lines
+nnoremap <Leader>f mlgg=G`l
 " Ctrl+s para save file
 inoremap <C-s> <Esc>:w<CR>
 nnoremap <C-s> :w<CR>
 " Ctrl-D para duplicar linea o lineas en visual mode
-nnoremap <C-d> yyp
-vnoremap <C-d> ykp
+nnoremap <leader>d yyp
 " Insertar un spacio en el cursor
 nnoremap ss <Esc>i<Space><Esc>
 " Moverse entre los tabs
