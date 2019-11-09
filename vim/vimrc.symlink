@@ -1,6 +1,5 @@
 " Iniciar el manejador de plugins
 call plug#begin('~/.vim/bundle')
-Plug 'VundleVim/Vundle.vim'
 Plug 'dracula/vim'
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
