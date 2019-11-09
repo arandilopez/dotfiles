@@ -167,11 +167,6 @@ nnoremap <C-s> :w<CR>
 nnoremap <leader>d yyp
 " Insertar un spacio en el cursor
 nnoremap ss <Esc>i<Space><Esc>
-" Moverse entre los tabs
-map <C-t><up> :tabr<cr>
-map <C-t><down> :tabl<cr>
-map <C-t><left> :tabp<cr>
-map <C-t><right> :tabn<cr>
 nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
 nnoremap <C-F2> :if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>
 " Leader mappings
@@ -218,7 +213,6 @@ let g:lightline = {
       \ },
       \ }
 
-autocmd FileType php setlocal tabstop=4 shiftwidth=4 softtabstop=4
 autocmd BufWritePre * %s/\s\+$//e " Delete trailing spaces before save
 au FocusLost * silent! wa " save all buffers when focus is lost
 command CopyFilePath silent! let @+ = expand("%:p")
