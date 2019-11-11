@@ -40,6 +40,7 @@ Plug 'rhysd/vim-textobj-ruby'
 Plug 'kana/vim-textobj-user'
 Plug 'ap/vim-buftabline'
 Plug 'junegunn/gv.vim'
+Plug 'AndrewRadev/splitjoin.vim'
 call plug#end()
 " Settings de VIM
 set nocompatible              " be iMproved, required
