@@ -14,5 +14,6 @@ atom.symlink/package-deps-state.json
 atom.symlink/.atom-socket-secret-*
 git/gitconfig.local.symlink
 /vim.symlink/bundle/
+/vim.symlink/spell/
 !/vim.symlink/bundle/.keep
 cache/
