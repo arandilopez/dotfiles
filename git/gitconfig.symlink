@@ -39,6 +39,7 @@
 	smudge = git-lfs smudge -- %f
 	required = true
 	clean = git-lfs clean -- %f
+	process = git-lfs filter-process
 [user]
 	name = Arandi Lopez
 	signingkey = BBC15A102985776B
