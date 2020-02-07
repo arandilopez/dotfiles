@@ -42,6 +42,7 @@ Plug 'ap/vim-buftabline'
 Plug 'junegunn/gv.vim'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'junegunn/vim-easy-align'
+Plug 'wsdjeg/vim-todo'
 call plug#end()
 " Settings de VIM
 set nocompatible              " be iMproved, required
