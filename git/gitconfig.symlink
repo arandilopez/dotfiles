@@ -45,3 +45,5 @@
 	signingkey = BBC15A102985776B
 [github]
 	user = arandilopez
+[cola]
+	spellcheck = false
