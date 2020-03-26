@@ -1,13 +1,15 @@
 APP_NAME = @app_name.titleize
-RAILS_VERSION = File.read('Gemfile').scan(%r{(?<=gem 'rails', '~> ).*(?=')}).first
+RAILS_VERSION = File.read('Gemfile').scan(%r{(?<=gem 'rails', '~> ).*(?=')}).first.to_f
 
 ##################
 # Methods
 ##################
 def install_webpack?
-  return unless yes? "Would you like to install Webpack?"
-  gem 'webpacker'
-  rails_command 'webpacker:install'
+  if RAILS_VERSION < 6
+    return unless yes? "Would you like to install Webpack?"
+    gem 'webpacker'
+    rails_command 'webpacker:install'
+  end
   driver = ask("Which front-end framework will you use? [vue, react, angular, stimulus] (default: vue)")
   driver = 'vue' if driver.blank?
   rails_command "webpacker:install:#{driver}"
