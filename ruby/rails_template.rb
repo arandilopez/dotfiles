@@ -42,7 +42,7 @@ def install_sidekiq?
   gem 'sidekiq'
   environment 'config.active_job.queue_adapter = :sidekiq', env: :production
   environment "config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect'", env: :production
-  prepend_to_file 'config/routes.rb', "require 'sidekiq/web'"
+  prepend_to_file 'config/routes.rb', "require 'sidekiq/web'\n\n"
   route <<~TEXT
   authenticate :user do
     mount Sidekiq::Web => '/sidekiq'
