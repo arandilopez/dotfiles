@@ -102,11 +102,11 @@ default: &default
 
 development:
   <<: *default
-  database: accounting_development
+  database: #{@app_name}_development
 
 test:
   <<: *default
-  database: accounting_test
+  database: #{@app_name}_test
 
 production:
   url: <%= ENV['DATABASE_URL'] %>
