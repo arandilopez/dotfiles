@@ -52,12 +52,10 @@ unset config_files
 
 if [[ ($OS_NAME == 'Linux') && (-d "$HOME/.asdf") ]]; then
   source $HOME/.asdf/asdf.sh
-  source $HOME/.asdf/completions/asdf.bash
 fi
 
 if [[ ($OS_NAME == 'Darwin') && (-d "/usr/local/opt/asdf") ]]; then
   source /usr/local/opt/asdf/asdf.sh
-  source /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
 fi
 
 source $ZSH/zsh-autosuggestions/zsh-autosuggestions.zsh
