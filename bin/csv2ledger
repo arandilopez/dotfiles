@@ -1,0 +1,70 @@
+#! /usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'csv'
+require 'optparse'
+require 'active_support/all'
+
+USAGE = <<~HEREDOC
+  Usage: csv2legder -f path/to/file.csv -a "Credit:Mastercard"
+HEREDOC
+DEFAULT_OPEN_MODE = 'rb:ISO-8859-3:UTF-8'
+CUSTOM_CONVERTER = ->(header) { header.parameterize.downcase.to_sym }
+
+params = {}
+OptionParser.new do |opts|
+  opts.banner = USAGE
+  opts.on '-f', '--file [FILE]', 'CSV file to parse'
+  opts.on '-a', '--account [ACCOUNT]', 'Account to charge o credit transactions'
+  opts.on '-e', '--expenses [ACCOUNT]', 'Account for expenses transactions'
+  opts.on '-h', '--help', 'Print this help' do
+    puts opts
+    exit
+  end
+end.parse!(into: params)
+
+@csv_file_path = params[:file]
+@tc_account = params[:account]
+@expenses_account = params[:expenses] || 'Gastos:Compras con TC'
+
+if @csv_file_path.nil? || @csv_file_path.empty?
+  warn 'Error: Missing file'
+  puts USAGE
+  exit(1)
+end
+
+if @tc_account.nil? || @tc_account.empty?
+  warn 'Error: Missing account name'
+  puts USAGE
+  exit(1)
+end
+
+unless File.exist?(@csv_file_path)
+  warn "Error: File `#{@csv_file_path}` does not exist"
+  exit(1)
+end
+
+File.open(@csv_file_path, DEFAULT_OPEN_MODE) do |file|
+  csv = CSV.parse(file.read.strip,
+                  headers: :first_row,
+                  header_converters: CUSTOM_CONVERTER)
+  csv.each do |row|
+    date = Date.parse(row[:fecha]).strftime('%Y/%m/%d')
+    description = row[:descripcion].squish.strip.tr('!*', '')
+    debit = row[:debito].tr(',', '').to_d
+    credit = row[:credito].tr(',', '').to_d
+    if debit.zero? && credit.nonzero?
+      puts <<~LEDGER
+        #{date} #{description}
+               #{@tc_account}            $#{credit}
+               #{@expenses_account}
+      LEDGER
+      next
+    end
+    puts <<~LEDGER
+      #{date} #{description}
+             #{@expenses_account}          $#{debit}
+             #{@tc_account}
+    LEDGER
+  end
+end
