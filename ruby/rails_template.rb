@@ -62,7 +62,7 @@ end
 def install_haml?
   return unless yes? "Would you like to install Haml and convert your erb views to haml?"
   gem 'hamlit-rails'
-  rails_command 'hamlit:erb2haml'
+  # rails_command 'hamlit:erb2haml'
 end
 
 # Everything starts here!

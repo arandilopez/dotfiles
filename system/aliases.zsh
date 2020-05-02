@@ -47,7 +47,5 @@ case $OS_NAME in
 esac
 
 alias lgrep="ls | grep"
-
 alias cl='clear'
-
 alias quit='exit'
