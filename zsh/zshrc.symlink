@@ -61,5 +61,5 @@ fi
 source $ZSH/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Register ssh key
-ssh-add -K 2&> /dev/null
+ssh-add -l &> /dev/null
 unsetopt PROMPT_SP
