@@ -1,0 +1,81 @@
+# Improve colors
+set -g default-terminal "tmux-256color"
+set -ga terminal-overrides ",xterm-256color*:Tc"
+# Set scrollback buffer to 10000
+set -g history-limit 10000
+# Enable mouse scroll and actions
+set -g mouse on
+
+# Key bindings
+# remap prefix from 'C-b' to 'C-a'
+unbind C-b
+set -g prefix C-a
+
+# set first window to index 1 (not 0) to map more to the keyboard layout
+set -g base-index 1
+set -g pane-base-index 1
+
+# pass through xterm keys
+set -g xterm-keys on
+
+# Keep your finger on ctrl, or don't, same result
+bind-key C-d detach-client
+bind-key C-p paste-buffer
+
+# Redraw the client (if interrupted by wall, etc)
+bind R refresh-client
+
+# reload tmux config with ctrl + a + r
+unbind r
+bind r \
+       source-file ~/.tmux.conf \;\
+       display 'Reloaded tmux config.'
+
+# Vertical splits with v or C-v
+unbind v
+unbind C-v
+bind-key v split-window -h
+bind-key C-v split-window -h
+# Horizontal splits with h or C-h
+unbind h
+unbind C-h
+bind-key h split-window
+bind-key C-h split-window
+
+# C + control q to kill session
+unbind q
+unbind C-q
+bind-key q kill-session
+bind-key C-q kill-session
+
+# Ctrl + a + Pagedown : Next window
+unbind Pagedown
+bind-key Pagedown next-window
+
+# Ctrl + a + Pagup : Previous window
+unbind Pageup
+bind-key Pageup previous-window
+
+# Vi mode (copy mode)
+set-window-option -g mode-keys vi
+bind-key Enter copy-mode
+bind-key -T copy-mode-vi v send-keys -X begin-selection
+bind-key -T copy-mode-vi V send-keys -X select-line
+bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
+bind-key -T copy-mode-vi y send-keys -X copy-pipe "xclip -i -sel clip > /dev/null"
+bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe "xclip -i -sel clip > /dev/null"
+bind-key p run "xclip -o -sel clip | tmux load-buffer - ; tmux paste-buffer"
+
+# Theming
+# set -g @onedark_widgets "#(date +%s)"
+set -g @onedark_time_format "%I:%M %p"
+set -g @onedark_date_format "%B %d, %Y"
+
+# List of plugins
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+
+set -g @plugin 'odedlaz/tmux-onedark-theme'
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run -b '~/.tmux/plugins/tpm/tpm'
