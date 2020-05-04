@@ -26,8 +26,8 @@ bind-key C-p paste-buffer
 bind R refresh-client
 
 # reload tmux config with ctrl + a + r
-unbind r
-bind r \
+unbind R
+bind R \
        source-file ~/.tmux.conf \;\
        display 'Reloaded tmux config.'
 
@@ -64,10 +64,7 @@ bind P choose-buffer # choose which buffer to paste from
 bind-key -T copy-mode-vi v send-keys -X begin-selection
 bind-key -T copy-mode-vi V send-keys -X select-line
 bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
-bind-key -T copy-mode-vi y send-keys -X copy-pipe "xclip -i -sel clip > /dev/null"
-bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe "xclip -i -sel clip > /dev/null"
-# bind-key p run "xclip -o -sel clip | tmux load-buffer - ; tmux paste-buffer"
-
+set -g @yank_with_mouse on
 # Theming
 # set -g @onedark_widgets "#(date +%s)"
 set -g @onedark_time_format "%I:%M %p"
@@ -76,7 +73,8 @@ set -g @onedark_date_format "%B %d, %Y"
 # List of plugins
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
-
+set -g @plugin 'tmux-plugins/tmux-yank'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'odedlaz/tmux-onedark-theme'
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
