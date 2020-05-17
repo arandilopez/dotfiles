@@ -1,1 +1,0 @@
-/home/arandilopez/.vimrc
