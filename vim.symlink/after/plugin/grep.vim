@@ -4,5 +4,5 @@ if executable('ag')
   set grepprg=ag\ --vimgrep\ -i
   " bind \ (backward slash) to grep shortcut
   command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-  nnoremap \ :Ag<SPACE>
+  nnoremap <Leader>sp :Ag<SPACE>
 endif

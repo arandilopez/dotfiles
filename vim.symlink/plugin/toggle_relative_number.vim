@@ -9,4 +9,4 @@ function g:ToggleRelativeNumber()
 
 endfunction
 
-nnoremap <silent><leader>l :call g:ToggleRelativeNumber()<CR>
+nnoremap <silent><leader>tn :call g:ToggleRelativeNumber()<CR>

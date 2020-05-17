@@ -42,6 +42,7 @@ Plug 'ap/vim-buftabline'
 Plug 'junegunn/gv.vim'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'junegunn/vim-easy-align'
+Plug 'liuchengxu/vim-which-key'
 call plug#end()
 " Settings de VIM
 set nocompatible              " be iMproved, required
@@ -77,7 +78,7 @@ let g:onedark_termcolors=256
 " let g:onedark_terminal_italics=1
 colorscheme onedark
 
-set timeout timeoutlen=1500
+set timeout timeoutlen=500
 " numero de lineas
 set number
 set wrap
@@ -88,9 +89,10 @@ set shiftwidth=2
 set shiftround
 set smarttab
 set expandtab
-" set cursorline
+set cursorline
 set showmatch
 set mousehide
+set showcmd
 " Caracteres para mostar espacios, tabs y fin de linea
 set list
 set list lcs=trail:·,space:·,tab:»·,eol:¬
@@ -134,7 +136,6 @@ set signcolumn=yes
 
 " Disable concealing in all languages, eg: md and tex
 set conceallevel=0
-
 set splitbelow "Make splits default to below...
 set splitright "And to the right. This feels more natural.
 " Las @ es lo mejor de esta fuente
@@ -164,8 +165,9 @@ endif
 " Tags for navigations
 set tags+=./tags " use local tags in project
 
-let mapleader=","
+let mapleader=" "
 " Shortcuts
+nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 " GoTo code navigation.
@@ -175,33 +177,20 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " Habilitar nerdtree
-map <silent><C-k><C-b> :NERDTreeToggle<CR>
-" Moving lines up and down
-" Mover hacia abajo ctrl-j
-nnoremap glj :m+<CR>==
-" Mover hacia arriba ctrl-k
-nnoremap glk :m-2<CR>==
+map <Leader>op :NERDTreeToggle<CR>
 
 " Re-indent all lines
-nnoremap <Leader>f mlgg=G`l
-" Ctrl+s para save file
-inoremap <C-s> <Esc>:w<CR>
-nnoremap <C-s> :w<CR>
-" Ctrl-D para duplicar linea o lineas en visual mode
-nnoremap <leader>d yyp
-" Insertar un spacio en el cursor
-nnoremap ss <Esc>i<Space><Esc>
+nnoremap <Leader>fa mlgg=G`l
 nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
 nnoremap <C-F2> :if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>
 " Leader mappings
 nnoremap <Leader>wtt :WakaTimeToday<CR>
 " Clean open buffers and delete them from unlisted
-nnoremap <Leader>q :Bwipeout<CR>
-nnoremap <Leader>qa :bufdo :Bwipeout<CR>:Startify<CR>
-nmap <Leader><space> :nohlsearch<cr>
-nmap <Leader>v :tabe ~/.vimrc<cr>
-nnoremap <Leader>tn :bnext<CR>
-nnoremap <Leader>tb :bprev<CR>
+nnoremap <Leader>bd :Bwipeout<CR>
+nnoremap <Leader>bK :bufdo :Bwipeout<CR>:Startify<CR>
+" nmap <Leader>v :tabe ~/.vimrc<cr>
+nnoremap <Leader>bn :bnext<CR>
+nnoremap <Leader>bp :bprev<CR>
 "Sort PHP use statements
 "http://stackoverflow.com/questions/11531073/how-do-you-sort-a-range-of-lines-by-length
 vmap <Leader>su ! awk '{ print length(), $0 \| "sort -n \| cut -d\\  -f2-" }'<cr>
@@ -244,5 +233,4 @@ let g:lightline = {
       \ }
 
 autocmd BufWritePre * %s/\s\+$//e " Delete trailing spaces before save
-au FocusLost * silent! wa " save all buffers when focus is lost
 command CopyFilePath silent! let @+ = expand("%:p")
