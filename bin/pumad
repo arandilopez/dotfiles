@@ -1,0 +1,8 @@
+#! /usr/bin/sh
+
+if [[ -f 'Gemfile' ]]; then
+  echo "You're not in a rails folder"
+else
+  puma-dev link
+  echo "Now you can access to http://$(basename `pwd`).test"
+fi

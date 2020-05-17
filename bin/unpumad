@@ -1,0 +1,7 @@
+#! /user/bin/sh
+
+if [[ -f 'Gemfile' ]]; then
+  echo "You're not in a rails application folder"
+else
+  rm ~/.puma-dev/$(basename `pwd`)
+fi
