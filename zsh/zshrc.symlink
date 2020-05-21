@@ -61,5 +61,9 @@ fi
 source $ZSH/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Register ssh key
-ssh-add -l &> /dev/null
+if [[ ($OS_NAME == 'Darwin') ]] then
+  ssh-add -K &> /dev/null
+else
+  ssh-add -l &> /dev/null
+fi
 unsetopt PROMPT_SP
