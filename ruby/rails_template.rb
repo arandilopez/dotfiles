@@ -7,6 +7,7 @@ end
 ##################
 
 def install_bootstrap?
+  return unless yes?("Would you like to install Bootstrap?")
   yarn 'jquery', 'popper.js', 'bootstrap'
 
   inject_into_file 'config/webpack/environment.js', after: "const { environment } = require('@rails/webpacker')\n" do <<~EOF
@@ -154,7 +155,7 @@ file 'Procfile', <<~TEXT
 TEXT
 
 # Setup factory_bot_rails
-File.open(Rails.root.join("test", "test_helper.rb"), "r+") do |file|
+File.open('test/test_helper.rb', 'r+') do |file|
   lines = file.each_line.to_a
   config_index = lines.map.with_index { |line, index| index if line == "end\n" }.last
   lines.insert(config_index, "  include FactoryBot::Syntax::Methods\n");
