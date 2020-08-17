@@ -33,6 +33,46 @@ def install_bootstrap?
   end
 end
 
+def install_tailwind?
+  return unless yes?("Would you like to install Tailwind?")
+  yarn "tailwindcss"
+  run "yarn tailwind init"
+  run "mkdir app/javascript/css"
+  run "touch app/javascript/css/application.scss"
+  inject_into_file 'app/javascript/css/application.scss' do <<~EOF
+    @import "tailwindcss/base";
+    @import "tailwindcss/components";
+    @import "tailwindcss/utilities";
+  EOF
+  end
+
+  inject_into_file 'app/javascript/packs/application.js' do <<~EOF
+    require("css/application.scss")
+  EOF
+  end
+
+  inject_into_file 'postcss.config.js', before: "require('postcss-import')" do <<~EOF
+        require('tailwindcss'),
+        require('autoprefixer'),
+  EOF
+  end
+
+  gsub_file "tailwind.config.js", /purge:\s\[],/, <<~PURGE
+    purge: [
+      './app/**/*.html.erb',
+      './app/helpers/**/*.rb',
+      './src/**/*.html',
+      './src/**/*.vue',
+      './src/**/*.jsx',
+    ],
+  PURGE
+
+  inject_into_file 'app/views/layouts/application.html.erb', before: '</head>' do <<~EOF
+      <%= stylesheet_pack_tag 'stylesheets', media: 'all', 'data-turbolinks-track': 'reload' %>
+  EOF
+  end
+end
+
 def install_frontend_framework?
   driver = ask("Which front-end framework will you use? [vue, react, angular, stimulus] (default: vue)")
   driver = 'vue' if driver.blank?
@@ -168,6 +208,7 @@ after_bundle do
 
   install_frontend_framework?
   install_bootstrap?
+  install_tailwind?
   install_devise?
   install_delayed_job?
   install_sidekiq?
