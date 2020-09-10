@@ -1,5 +1,25 @@
+# frozen_string_literal: true
+
+### Helpers
 def yarn(*packages)
-  run("yarn add #{packages.join(" ")}")
+  run("yarn add #{packages.join(' ')}")
+end
+
+def create_bin(name, command = nil)
+  create_file "bin/#{name}" do <<~EOF
+    #!/usr/bin/env ruby
+    APP_ROOT = File.expand_path('..', __dir__)
+    Dir.chdir(APP_ROOT) do
+      begin
+        exec '#{command || name}'
+      rescue Errno::ENOENT
+        $stderr.puts "#{name} executable was not detected in the system."
+        exit 1
+      end
+    end
+  EOF
+  end
+  `chmod +x bin/#{name}`
 end
 
 ##################
@@ -7,10 +27,11 @@ end
 ##################
 
 def install_bootstrap?
-  return unless yes?("Would you like to install Bootstrap?")
+  return unless yes?('Would you like to install Bootstrap?')
+
   yarn 'jquery', 'popper.js', 'bootstrap'
 
-  inject_into_file 'config/webpack/environment.js', after: "const { environment } = require('@rails/webpacker')\n" do <<~EOF
+  inject_into_file 'config/webpack/environment.js', after: "const { environment } = require('@rails/webpacker')\n" do <<~JAVASCRIPT
     const webpack = require('webpack')
     environment.plugins.append('Provide', new webpack.ProvidePlugin({
       $: 'jquery',
@@ -18,46 +39,47 @@ def install_bootstrap?
       'window.jQuery': 'jquery',
       Popper: ['popper.js', 'default']
     }))
-  EOF
+  JAVASCRIPT
   end
 
-  inject_into_file 'app/views/layouts/application.html.erb', before: '</head>' do <<~EOF
+  inject_into_file 'app/views/layouts/application.html.erb', before: '</head>' do <<~ERB
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  EOF
+  ERB
   end
 
-  inject_into_file 'app/javascript/packs/application.js' do <<~EOF
+  inject_into_file 'app/javascript/packs/application.js' do <<~JAVASCRIPT
   import 'bootstrap/dist/js/bootstrap'
   import 'bootstrap/dist/css/bootstrap'
-  EOF
+  JAVASCRIPT
   end
 end
 
 def install_tailwind?
-  return unless yes?("Would you like to install Tailwind?")
-  yarn "tailwindcss"
-  run "yarn tailwind init"
-  run "mkdir app/javascript/css"
-  run "touch app/javascript/css/application.scss"
-  inject_into_file 'app/javascript/css/application.scss' do <<~EOF
+  return unless yes?('Would you like to install Tailwind?')
+
+  yarn 'tailwindcss'
+  run 'yarn tailwind init'
+  run 'mkdir app/javascript/css'
+  run 'touch app/javascript/css/application.scss'
+  inject_into_file 'app/javascript/css/application.scss' do <<~SASS
     @import "tailwindcss/base";
     @import "tailwindcss/components";
     @import "tailwindcss/utilities";
-  EOF
+  SASS
   end
 
-  inject_into_file 'app/javascript/packs/application.js' do <<~EOF
+  inject_into_file 'app/javascript/packs/application.js' do <<~JAVASCRIPT
     require("css/application.scss")
-  EOF
+  JAVASCRIPT
   end
 
-  inject_into_file 'postcss.config.js', before: "require('postcss-import')" do <<~EOF
+  inject_into_file 'postcss.config.js', before: "require('postcss-import')" do <<~JAVASCRIPT
         require('tailwindcss'),
         require('autoprefixer'),
-  EOF
+  JAVASCRIPT
   end
 
-  gsub_file "tailwind.config.js", /purge:\s\[],/, <<~PURGE
+  gsub_file 'tailwind.config.js', /purge:\s\[],/, <<~PURGE
     purge: [
       './app/**/*.html.erb',
       './app/helpers/**/*.rb',
@@ -67,42 +89,44 @@ def install_tailwind?
     ],
   PURGE
 
-  inject_into_file 'app/views/layouts/application.html.erb', before: '</head>' do <<~EOF
+  inject_into_file 'app/views/layouts/application.html.erb', before: '</head>' do <<~ERB
       <%= stylesheet_pack_tag 'stylesheets', media: 'all', 'data-turbolinks-track': 'reload' %>
-  EOF
+  ERB
   end
 end
 
 def install_frontend_framework?
-  driver = ask("Which front-end framework will you use? [vue, react, angular, stimulus] (default: vue)")
+  driver = ask('Which front-end framework will you use? [vue, react, angular, stimulus] (default: vue)')
   driver = 'vue' if driver.blank?
   rails_command "webpacker:install:#{driver}"
 end
 
 def install_devise?
-  return unless yes?("Would you like to install Devise?")
-  run "bundle add devise"
+  return unless yes?('Would you like to install Devise?')
+
+  run 'bundle add devise'
   run 'bundle install'
-  generate "devise:install"
-  environment "config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }", env: 'development'
-  environment "config.action_mailer.delivery_method = :smtp", env: 'development'
-  environment "config.action_mailer.smtp_settings = { address: 'localhost', port: 1025 }", env: 'development'
-  model_name = ask("What would you like the user model to be called? [user]")
-  model_name = "user" if model_name.blank?
-  attributes = ""
+  generate 'devise:install'
+  environment 'config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }', env: 'development'
+  environment 'config.action_mailer.delivery_method = :smtp', env: 'development'
+  environment 'config.action_mailer.smtp_settings = { address: 'localhost', port: 1025 }', env: 'development'
+  model_name = ask('What would you like the user model to be called? [user]')
+  model_name = 'user' if model_name.blank?
+  attributes = ''
   if yes?("Do you want to any extra attributes to #{model_name}? [y/n]")
-    attributes = ask("What attributes?")
+    attributes = ask('What attributes?')
   end
   run "rails generate devise #{model_name} #{attributes}"
 end
 
 def install_delayed_job?
-  return unless yes? "Would you like to install Delayed Job?"
+  return unless yes? 'Would you like to install Delayed Job?'
+
   run 'bundle add delayed_job_active_record'
   run 'bundle install'
-  generate "delayed_job:active_record"
+  generate 'delayed_job:active_record'
   environment 'config.active_job.queue_adapter = :delayed_job', env: :production
-  initializer "delayed_job_queues.rb", <<~TEXT
+  initializer 'delayed_job_queues.rb', <<~TEXT
   Delayed::Worker.queue_attributes = {
     high_priority: { priority: 0 },
     default: { priority: 5 },
@@ -113,7 +137,8 @@ def install_delayed_job?
 end
 
 def install_sidekiq?
-  return unless yes?("Would you like to install sidekiq?")
+  return unless yes?('Would you like to install sidekiq?')
+
   run 'bundle add sidekiq'
   run 'bundle install'
   environment 'config.active_job.queue_adapter = :sidekiq', env: :production
@@ -128,7 +153,8 @@ def install_sidekiq?
 end
 
 def install_postmarkapp?
-  return unless yes?("Would you like to instal postmarkapp for mailing?")
+  return unless yes?('Would you like to instal postmarkapp for mailing?')
+
   run 'bundle add postmark-rails'
   run 'bundle install'
   environment 'config.action_mailer.delivery_method = :postmark', env: :production
@@ -137,10 +163,117 @@ def install_postmarkapp?
 end
 
 def install_haml?
-  return unless yes? "Would you like to install Haml and convert your erb views to haml?"
+  return unless yes? 'Would you like to install Haml and convert your erb views to haml?'
+
   run 'bundle add hamlit-rails'
   run 'bundle install'
   rails_command 'hamlit:erb2haml'
+end
+
+def install_rubocop?
+  return unless yes? 'Would you like to install Rubocop?'
+
+  gem_group :development, :test do
+    gem 'rubocop'
+    gem 'rubocop-minitest'
+    gem 'rubocop-performance'
+    gem 'rubocop-rails'
+  end
+
+  run 'bundle install'
+
+  create_file '.rubocop.yml' do <<~YAML
+    require:
+      - rubocop-rails
+      - rubocop-performance
+      - rubocop-minitest
+
+    inherit_mode:
+      merge:
+        - Exclude
+
+    AllCops:
+    # RuboCop has a bunch of cops enabled by default. This setting tells RuboCop
+    # to ignore them, so only the ones explicitly set in this file are enabled.
+      DisabledByDefault: true
+      Exclude:
+        - '**/tmp/**/*'
+        - '**/vendor/**/*'
+        - '**/node_modules/**/*'
+
+    Bundler/OrderedGems:
+      Enabled: true
+      AutoCorrect: true
+    Layout/EmptyLinesAroundAttributeAccessor:
+      Enabled: true
+    Layout/LineLength:
+      Enabled: true
+      AutoCorrect: true
+    Layout/SpaceAroundMethodCallOperator:
+      Enabled: true
+    Lint/DeprecatedOpenSSLConstant:
+      Enabled: true
+    Lint/MixedRegexpCaptureTypes:
+      Enabled: true
+    Lint/RaiseException:
+      Enabled: true
+    Lint/StructNewOverride:
+      Enabled: true
+    Metrics/BlockLength:
+      Enabled: true
+      Exclude:
+        - 'config/environments/development.rb'
+    Performance/AncestorsInclude:
+      Enabled: true
+    Performance/BigDecimalWithNumericArgument:
+      Enabled: true
+    Performance/RedundantSortBlock:
+      Enabled: true
+    Performance/RedundantStringChars:
+      Enabled: true
+    Performance/ReverseFirst:
+      Enabled: true
+    Performance/SortReverse:
+      Enabled: true
+    Performance/Squeeze:
+      Enabled: true
+    Performance/StringInclude:
+      Enabled: true
+    Style/AccessorGrouping:
+      Enabled: true
+    Style/BisectedAttrAccessor:
+      Enabled: true
+    Style/ClassAndModuleChildren:
+      Enabled: true
+      AutoCorrect: true
+    Style/Documentation:
+      Enabled: false
+    Style/ExponentialNotation:
+      Enabled: true
+    Style/HashEachMethods:
+      Enabled: true
+    Style/HashTransformKeys:
+      Enabled: true
+    Style/HashTransformValues:
+      Enabled: true
+    Style/RedundantAssignment:
+      Enabled: true
+    Style/RedundantFetchBlock:
+      Enabled: true
+    Style/RedundantRegexpCharacterClass:
+      Enabled: true
+    Style/RedundantRegexpEscape:
+      Enabled: true
+    Style/SlicingWithRange:
+      Enabled: true
+  YAML
+  end
+
+  create_bin 'rubocop', 'rubocop'
+  create_bin 'rubocop_fix', 'rubocop --auto-correct-all'
+
+  system('bin/rubocop_fix')
+  system('rubocop --auto-correct-all --disable-uncorrectable')
 end
 
 # Everything starts here!
@@ -203,6 +336,8 @@ File.open('test/test_helper.rb', 'r+') do |file|
   file.write(lines.join)
 end
 
+gsub_file 'config/environments/development.rb', "Rails.root.join('tmp', 'caching-dev.txt')", "Rails.root.join('tmp/caching-dev.txt')"
+
 after_bundle do
   run 'spring stop'
 
@@ -214,6 +349,7 @@ after_bundle do
   install_sidekiq?
   install_postmarkapp?
   install_haml?
+  install_rubocop?
 
   if yes?('Generate home controller and root path?')
     generate :controller, 'home index'

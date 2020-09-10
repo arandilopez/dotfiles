@@ -1,4 +1,3 @@
 --database=postgresql
 --template=~/.dotfiles/ruby/rails_template.rb
---skip-active-storage
---skip-action-text
+--skip-sprockets
