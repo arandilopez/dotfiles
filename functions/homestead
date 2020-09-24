@@ -1,0 +1,5 @@
+#!/bin/sh
+
+homestead() {
+    ( cd ~/Homestead && vagrant $* )
+}
