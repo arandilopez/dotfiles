@@ -107,9 +107,9 @@ def install_devise?
   run 'bundle add devise'
   run 'bundle install'
   generate 'devise:install'
-  environment 'config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }', env: 'development'
+  environment "config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }", env: 'development'
   environment 'config.action_mailer.delivery_method = :smtp', env: 'development'
-  environment 'config.action_mailer.smtp_settings = { address: 'localhost', port: 1025 }', env: 'development'
+  environment "config.action_mailer.smtp_settings = { address: 'localhost', port: 1025 }", env: 'development'
   model_name = ask('What would you like the user model to be called? [user]')
   model_name = 'user' if model_name.blank?
   attributes = ''
