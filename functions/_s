@@ -1,3 +1,0 @@
-#compdef s
-_files -W $PROJECTS_RAILS -/
-# See further documentation in `functions/s`.
