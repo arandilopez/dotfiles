@@ -7,5 +7,5 @@ if type nvim > /dev/null 2>&1; then
   alias vim='nvim'
 fi
 if type tmux > /dev/null 2>&1; then
-  alias tm='tmux new -s $(basename `pwd`)'
+  alias tm='tmux new -s $(basename `pwd` | sed "s/[^a-zA-Z0-9]//g")'
 fi
