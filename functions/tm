@@ -1,0 +1,5 @@
+#!/bin/sh
+
+tm() {
+    (tmux new -s $(basename `pwd` | sed "s/[^a-zA-Z0-9]//g"))
+}
