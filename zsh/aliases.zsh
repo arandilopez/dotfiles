@@ -6,3 +6,7 @@ fi
 if type nvim > /dev/null 2>&1; then
   alias vim='nvim'
 fi
+
+if type tmux > /dev/null 2>&1; then
+  alias tma="tmux attach"
+fi
