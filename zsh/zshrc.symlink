@@ -59,7 +59,6 @@ if [[ ($OS_NAME == 'Darwin') && (-d "/usr/local/opt/asdf") ]]; then
 fi
 
 source $ZSH/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $ZSH/bash-wakatime/bash-wakatime.sh
 
 # Register ssh key
 if [[ ($OS_NAME == 'Darwin') ]] then
