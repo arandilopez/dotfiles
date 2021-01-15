@@ -7,10 +7,6 @@ export DOCUMENTS_PATH=~/Documents
 export PROJECTS=~/Code
 export ATOM_REPOS_HOME=$PROJECTS
 
-# Tilix fix
-if [[ $TILIX_ID ]]; then
-  source /etc/profile.d/vte.sh
-fi
 # Stash your environment variables in ~/.localrc. This means they'll stay out
 # of your main dotfiles repository (which may be public, like this one), but
 # you'll have access to them in your scripts.
@@ -58,7 +54,7 @@ if [[ ($OS_NAME == 'Darwin') && (-d "/usr/local/opt/asdf") ]]; then
   source /usr/local/opt/asdf/asdf.sh
 fi
 
-source $ZSH/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source $ZSH/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Register ssh key
 if [[ ($OS_NAME == 'Darwin') ]] then
@@ -67,3 +63,9 @@ else
   ssh-add -l &> /dev/null
 fi
 unsetopt PROMPT_SP
+
+source $ZSH/antigen.zsh
+
+antigen bundle zsh-users/zsh-autosuggestions
+
+antigen apply
