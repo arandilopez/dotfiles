@@ -67,5 +67,6 @@ unsetopt PROMPT_SP
 source $ZSH/antigen.zsh
 
 antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle sobolevn/wakatime-zsh-plugin
 
 antigen apply
