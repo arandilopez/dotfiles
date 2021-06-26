@@ -64,18 +64,18 @@ def install_tailwind?
   yarn 'tailwindcss'
   run 'yarn tailwind init'
   run 'mkdir app/javascript/css'
-  run 'touch app/javascript/css/application.scss'
-  inject_into_file 'app/javascript/css/application.scss' do
-    <<~SASS
+  run 'touch app/javascript/css/application.css'
+  inject_into_file 'app/javascript/css/application.css' do
+    <<~CSS
       @import "tailwindcss/base";
       @import "tailwindcss/components";
       @import "tailwindcss/utilities";
-    SASS
+    CSS
   end
 
   inject_into_file 'app/javascript/packs/application.js' do
     <<~JAVASCRIPT
-      require("css/application.scss")
+      require("css/application.css")
     JAVASCRIPT
   end
 
@@ -107,6 +107,7 @@ def install_frontend_framework?
   driver = ask('Which front-end framework will you use? [vue, react, angular, stimulus, none] (default: vue) (none option will not install any)')
   driver = 'vue' if driver.blank?
   return if driver == 'none'
+
   rails_command "webpacker:install:#{driver}"
 end
 
@@ -178,9 +179,13 @@ def install_postmarkapp?
 
   run 'bundle add postmark-rails'
   run 'bundle install'
-  environment 'config.action_mailer.delivery_method = :postmark', env: :production
-  environment 'config.action_mailer.postmark_settings = { api_token: Rails.application.credentials.postmark_api_token }', env: :production
-  puts 'Save your Postmark Server API Token to `config/credentials.yml.enc` by running `rails secret then rails credentials:edit`'
+  environment <<~RUBY, env: :production
+    config.action_mailer.delivery_method = :postmark
+    config.action_mailer.postmark_settings = { api_token: ENV.fetch('POSTMARK_API_TOKEN') }
+  RUBY
+  append_to_file '.env.example', 'POSTMARK_API_TOKEN='
+  append_to_file '.env', 'POSTMARK_API_TOKEN='
+  puts 'Save your Postmark Server API Token to `.env`'
 end
 
 def install_haml?
@@ -295,6 +300,7 @@ gsub_file 'Gemfile', /^[\r\n]+/, "\n"
 gsub_file 'config/routes.rb', /(^#|^. #).*?\n+/, ''
 
 # Adding dependencies
+gem 'letter_opener', group: :development
 gem_group :development, :test do
   gem 'faker'
   gem 'dotenv-rails'
@@ -311,6 +317,11 @@ end
   TEXT
 end
 append_to_file '.gitignore', '.env'
+
+config <<~RUBY, env: :development
+  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.perform_deliveries = true
+RUBY
 
 # Replace database.yml settings
 remove_file('config/database.yml')
@@ -347,7 +358,8 @@ File.open('test/test_helper.rb', 'r+') do |file|
   file.write(lines.join)
 end
 
-gsub_file 'config/environments/development.rb', "Rails.root.join('tmp', 'caching-dev.txt')", "Rails.root.join('tmp/caching-dev.txt')"
+gsub_file 'config/environments/development.rb', "Rails.root.join('tmp', 'caching-dev.txt')",
+          "Rails.root.join('tmp/caching-dev.txt')"
 
 after_bundle do
   run 'spring stop'
@@ -371,7 +383,7 @@ after_bundle do
 
   git add: '.'
   git commit: "-m 'Initial commit'"
-  puts '****************************************'
+  puts '*********************************************'
   puts "Don't forget to create and migrate your db!"
-  puts '****************************************'
+  puts '*********************************************'
 end
