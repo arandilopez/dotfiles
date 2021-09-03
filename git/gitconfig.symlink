@@ -42,7 +42,7 @@
 	process = git-lfs filter-process
 [user]
 	name = Arandi Lopez
-	signingkey = BBC15A102985776B
+
 [github]
 	user = arandilopez
 [cola]
