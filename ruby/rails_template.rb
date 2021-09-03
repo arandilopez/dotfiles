@@ -86,7 +86,7 @@ def install_tailwind?
     JAVASCRIPT
   end
 
-  gsub_file 'tailwind.config.js', /purge:\s\[],/, <<~PURGE
+  gsub_file 'tailwind.config.js', /purge:\s\[\],/, <<~PURGE
     purge: [
       './app/**/*.html.erb',
       './app/helpers/**/*.rb',
@@ -318,7 +318,7 @@ end
 end
 append_to_file '.gitignore', '.env'
 
-config <<~RUBY, env: :development
+environment <<~RUBY, env: :development
   config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.perform_deliveries = true
 RUBY
