@@ -49,3 +49,4 @@ esac
 alias lgrep="ls | grep"
 alias cl='clear'
 alias quit='exit'
+alias pub_ip='nslookup myip.opendns.com resolver1.opendns.com'
