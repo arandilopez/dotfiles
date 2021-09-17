@@ -5,7 +5,6 @@ export ZSH=$HOME/.dotfiles
 export DOCUMENTS_PATH=~/Documents
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/Code
-export ATOM_REPOS_HOME=$PROJECTS
 
 # Stash your environment variables in ~/.localrc. This means they'll stay out
 # of your main dotfiles repository (which may be public, like this one), but
@@ -54,14 +53,13 @@ if [[ ($OS_NAME == 'Darwin') && (-d "/usr/local/opt/asdf") ]]; then
   source /usr/local/opt/asdf/asdf.sh
 fi
 
-# source $ZSH/zsh-autosuggestions/zsh-autosuggestions.zsh
-
 # Register ssh key
 if [[ ($OS_NAME == 'Darwin') ]] then
   ssh-add -K &> /dev/null
 else
   ssh-add -l &> /dev/null
 fi
+
 unsetopt PROMPT_SP
 
 source $ZSH/antigen.zsh
