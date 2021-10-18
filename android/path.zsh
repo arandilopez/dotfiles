@@ -1,7 +1,7 @@
 case $OS_NAME in
   Linux )
     export ANDROID_HOME="$HOME/Android/Sdk";
-    export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/"
+    export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64/"
     ;;
   Darwin )
     export JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home"
