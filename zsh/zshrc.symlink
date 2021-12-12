@@ -49,8 +49,8 @@ if [[ ($OS_NAME == 'Linux') && (-d "$HOME/.asdf") ]]; then
   source $HOME/.asdf/asdf.sh
 fi
 
-if [[ ($OS_NAME == 'Darwin') && (-d "/usr/local/opt/asdf") ]]; then
-  source /usr/local/opt/asdf/asdf.sh
+if [[ ($OS_NAME == 'Darwin') ]]; then
+  source $(brew --prefix asdf)/libexec/asdf.sh
 fi
 
 # Register ssh key
@@ -59,6 +59,9 @@ if [[ ($OS_NAME == 'Darwin') ]] then
 else
   ssh-add -l &> /dev/null
 fi
+
+# GPG git
+export GPG_TTY=$(tty)
 
 unsetopt PROMPT_SP
 
