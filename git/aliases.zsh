@@ -2,10 +2,8 @@
 #   http://defunkt.github.com/hub/
 # Always use hub
 alias git='hub'
-
 # The rest of my fun git aliases
 alias g='hub'
-# alias gl='git pull'
 alias gl='git pull --rebase --autostash'
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset [%an] %s - %Creset%C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 alias gp='git push origin HEAD'
@@ -20,7 +18,7 @@ alias gcob='git checkout -b'
 alias gbn='git copy-branch-name'
 alias gb='git branch'
 alias gs='git status'
-alias gst='git status -sb' # upgrade your git if -sb breaks for you. it's fun.
+alias gst='git status -sb'
 alias gw='git whatchanged'
 alias gsw='git show'
 alias ga='git add'
@@ -35,3 +33,5 @@ alias nah="git clean -df && git checkout -- ."
 alias wtf="git wtf"
 alias switch="git switch"
 alias commit="git commit"
+alias add="git add"
+alias hack='git add -A && git commit'

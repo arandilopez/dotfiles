@@ -1,5 +1,1 @@
 --database=postgresql
---template=~/.dotfiles/ruby/rails_template.rb
---skip-sprockets
---skip-turbolinks
---skip-jbuilder
