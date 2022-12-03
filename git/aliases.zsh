@@ -9,7 +9,7 @@ alias glog="git log --graph --pretty=format:'%Cred%h%Creset [%an] %s - %Creset%C
 alias gp='git push origin HEAD'
 alias gpt='git push origin HEAD && git track'
 alias gd='git diff'
-alias gac='git add -A && git commit -m'
+alias gac='git add -A && git commit'
 alias gc='git commit'
 alias gcm='git commit -m'
 alias gcam='git commit -am'
