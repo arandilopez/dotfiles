@@ -72,3 +72,5 @@ antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle chrisands/zsh-yarn-completions
 
 antigen apply
+
+source /Users/arandilopez/.docker/init-zsh.sh || true # Added by Docker Desktop
