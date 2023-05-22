@@ -42,6 +42,12 @@ unbind C-h
 bind-key h split-window
 bind-key C-h split-window
 
+# vim-like pane switching
+bind -r k select-pane -U
+bind -r j select-pane -D
+bind -r h select-pane -L
+bind -r l select-pane -R
+
 # C + control q to kill session
 unbind q
 unbind C-q
