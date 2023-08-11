@@ -3,13 +3,6 @@ require 'irb/completion'
 require 'irb/ext/save-history'
 require 'rubygems'
 
-IRB.conf[:SAVE_HISTORY] = 1000
-IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb_history"
-
-IRB.conf[:PROMPT_MODE] = :SIMPLE
-
-IRB.conf[:AUTO_INDENT] = true
-
 class Object
   # list methods which aren't in superclass
   def local_methods(obj = self)
@@ -24,13 +17,41 @@ class Object
   #   arr.ri :pop
   def ri(method = nil)
     unless method && method =~ /^[A-Z]/ # if class isn't specified
-      klass = self.kind_of?(Class) ? name : self.class.name
+      klass = is_a?(Class) ? name : self.class.name
       method = [klass, method].compact.join('#')
     end
     puts `ri '#{method}'`
   end
 end
 
+class String
+  def red = "\e[31m#{self}\e[0m"
+  def cyan = "\e[36m#{self}\e[0m"
+end
+
 def r
   reload!
+end
+
+IRB.conf[:SAVE_HISTORY] = 1000
+IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb_history"
+
+IRB.conf[:PROMPT_MODE] = :SIMPLE
+
+IRB.conf[:AUTO_INDENT] = true
+
+if defined?(Rails)
+  project_name = File.basename(Dir.pwd).cyan
+  environment = ENV['RAILS_ENV'].red
+
+  IRB.conf[:PROMPT] ||= {}
+  IRB.conf[:PROMPT][:RAILS] = {
+    PROMPT_I: "#{project_name} (#{environment}) >> ",
+    PROMPT_N: "#{project_name} (#{environment}) ?> ",
+    PROMPT_S: "#{project_name} (#{environment}) %l ",
+    PROMPT_C: "#{project_name} (#{environment}) ?> ",
+    RETURN: "=> %s\n"
+  }
+
+  IRB.conf[:PROMPT_MODE] = :RAILS
 end

@@ -1,2 +1,2 @@
 # alias dup="docker-compose up"
-alias down="docker-compose down"
+alias down="docker compose down"

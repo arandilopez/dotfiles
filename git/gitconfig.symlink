@@ -18,6 +18,7 @@
 [core]
         editor = nvim
 	      excludesfile = ~/.gitignore
+	autocrlf = false
 [apply]
         whitespace = nowarn
 [mergetool]
