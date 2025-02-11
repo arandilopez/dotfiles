@@ -1,1 +1,1 @@
---database=postgresql
+--database=postgresql --devcontainer
