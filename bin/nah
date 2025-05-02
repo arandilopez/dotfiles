@@ -6,6 +6,12 @@
 
 require 'optparse'
 
+VERSION = '1.0.0'
+
+options = {
+  dry_run: false
+}
+
 parser = OptionParser.new do |opts|
   opts.banner = 'Usage: nah [options]'
 
@@ -15,11 +21,11 @@ parser = OptionParser.new do |opts|
   end
 
   opts.on('-v', '--version', 'Display the version') do
-    puts 'nah version 1.0.0'
+    puts "nah version #{VERSION}"
     exit
   end
 
-  opts.on('-d', '--dry-run', 'Execute a dry run') do
+  opts.on('-d', '--dry-run', 'Execute in dry-run mode') do
     options[:dry_run] = true
   end
 end
@@ -27,7 +33,16 @@ end
 parser.parse!(ARGV)
 
 # Displays changes in the current directory
-`git status --porcelain`
+puts "=> Changes in the current directory:\n"
 
-# Cleans up everything in the current directory
-`git clean -df && git checkout -- .` unless options[:dry_run]
+system('git status --verbose')
+
+if options[:dry_run]
+  puts "\n=> Executing in dry-run mode. No changes will be made."
+else
+  # Cleans up everything in the current directory
+  system('git clean -df && git checkout -- .')
+  puts "\nDone! All uncommitted changes have been rolled back."
+end
+
+exit 0
