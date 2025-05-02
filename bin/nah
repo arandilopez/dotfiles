@@ -6,7 +6,7 @@
 
 require 'optparse'
 
-parser = OptionsParser.new do |opts|
+parser = OptionParser.new do |opts|
   opts.banner = 'Usage: nah [options]'
 
   opts.on('-h', '--help', 'Display this help message') do
