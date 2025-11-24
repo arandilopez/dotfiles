@@ -26,3 +26,7 @@ fi
 if type yazi > /dev/null 2>&1; then
   alias yy='yazi'
 fi
+
+if zoxide > /dev/null 2>&1; then
+  alias z='zoxide'
+fi

@@ -45,13 +45,6 @@ done
 
 unset config_files
 
-if [[ ($OS_NAME == 'Linux') && (-d "$HOME/.asdf") ]]; then
-  source $HOME/.asdf/asdf.sh
-fi
-
-if [[ ($OS_NAME == 'Darwin') ]]; then
-  source $(brew --prefix asdf)/libexec/asdf.sh
-fi
 
 # Register ssh key
 if [[ ($OS_NAME == 'Darwin') ]] then
@@ -76,4 +69,17 @@ antigen apply
 if [[ -a ~/.docker/init-zsh.sh ]]
 then
   source ~/.docker/init-zsh.sh || true # Added by Docker Desktop
+fi
+
+# bun completions
+[ -s "/Users/arandilopez/.bun/_bun" ] && source "/Users/arandilopez/.bun/_bun"
+
+# Register mise
+if mise --version &> /dev/null; then
+  eval "$(mise activate bash)"
+fi
+
+# Register zoxide
+if zoxide --version &> /dev/null; then
+  eval "$(zoxide init zsh)"
 fi
