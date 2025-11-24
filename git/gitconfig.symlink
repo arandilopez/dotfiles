@@ -50,3 +50,5 @@
 	user = arandilopez
 [cola]
 	spellcheck = false
+[init]
+	defaultBranch = master
