@@ -10,3 +10,19 @@ fi
 if type tmux > /dev/null 2>&1; then
   alias tma="tmux attach"
 fi
+
+if type bat > /dev/null 2>&1; then
+  alias cat='bat'
+fi
+
+if type rg > /dev/null 2>&1; then
+  alias grep='rg'
+fi
+
+if type fzf > /dev/null 2>&1; then
+  alias f='fzf'
+fi
+
+if type yazi > /dev/null 2>&1; then
+  alias yy='yazi'
+fi
