@@ -7,5 +7,5 @@ alias rdb='rails dbconsole'
 
 alias be='bundle exec'
 alias bi='bundle install'
-alias bu='bundle update'
+alias bu='bundle update --all'
 alias bf='bundle info'
