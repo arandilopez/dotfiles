@@ -76,6 +76,7 @@ fi
 # Register mise
 if mise --version &> /dev/null; then
   eval "$(mise activate bash)"
+  eval "$(mise hook-env)"
 fi
 
 # Register zoxide
