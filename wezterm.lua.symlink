@@ -1,0 +1,130 @@
+local function scheme_for_appearance(appearance)
+	if appearance:find("Dark") then
+		return "Catppuccin Mocha"
+	else
+		return "Catppuccin Latte"
+	end
+end
+
+local function tab_bar_for_appearance(appearance)
+	if appearance:find("Dark") then
+		return {
+			background = "#181825",
+			active_tab = { bg_color = "#cba6f7", fg_color = "#11111b", intensity = "Bold" },
+			inactive_tab = { bg_color = "#313244", fg_color = "#cdd6f4" },
+			inactive_tab_hover = { bg_color = "#45475a", fg_color = "#f5e0dc" },
+			new_tab = { bg_color = "#181825", fg_color = "#89b4fa" },
+			new_tab_hover = { bg_color = "#45475a", fg_color = "#89b4fa" },
+		}
+	else
+		return {
+			background = "#eff1f5",
+			active_tab = { bg_color = "#8839ef", fg_color = "#eff1f5", intensity = "Bold" },
+			inactive_tab = { bg_color = "#dce0e8", fg_color = "#4c4f69" },
+			inactive_tab_hover = { bg_color = "#ccd0da", fg_color = "#8839ef" },
+			new_tab = { bg_color = "#eff1f5", fg_color = "#1e66f5" },
+			new_tab_hover = { bg_color = "#ccd0da", fg_color = "#1e66f5" },
+		}
+	end
+end
+
+local function agent_deck_colors_for_appearance(appearance)
+	if appearance:find("Dark") then
+		return {
+			working = "#a6e3a1", -- green: agent processing
+			waiting = "#f9e2af", -- yellow: needs input
+			idle = "#89b4fa", -- blue: ready
+			inactive = "#6c7086", -- overlay0: no agent
+		}
+	else
+		return {
+			working = "#40a02b", -- green: agent processing
+			waiting = "#df8e1d", -- yellow: needs input
+			idle = "#1e66f5", -- blue: ready
+			inactive = "#9ca0b0", -- overlay0: no agent
+		}
+	end
+end
+
+local function command_palette_colors_for_appearance(appearance)
+	if appearance:find("Dark") then
+		return {
+			background = "#181825",
+			foreground = "#cdd6f4",
+		}
+	else
+		return {
+			background = "#eff1f5",
+			foreground = "#4c4f69",
+		}
+	end
+end
+
+local wezterm = require("wezterm")
+local agent_deck = wezterm.plugin.require("https://github.com/Eric162/wezterm-agent-deck")
+-- This will hold the configuration.
+local config = wezterm.config_builder()
+local appearance = wezterm.gui.get_appearance()
+local command_palette_colors = command_palette_colors_for_appearance(appearance)
+local is_macos = wezterm.target_triple:lower():find("darwin") ~= nil
+
+agent_deck.apply_to_config(config, {
+	update_interval = 500, -- ms between status checks
+
+	colors = agent_deck_colors_for_appearance(appearance),
+
+	icons = {
+		style = "nerd", -- or 'unicode', 'emoji'
+		nerd = { working = "󰒋", waiting = "󰔟", idle = "󰄛", inactive = "󰅚" },
+	},
+
+	notifications = {
+		enabled = true,
+		on_waiting = true,
+		backend = "terminal-notifier", -- or 'native' (default)
+		terminal_notifier = {
+			sound = "default", -- or 'Ping', 'Glass', 'Funk', etc.
+			title = "WezTerm Agent Deck", -- notification title
+			activate = true, -- focus WezTerm when notification clicked
+		},
+	},
+})
+
+config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
+config.window_frame = {
+	font = wezterm.font("FiraCode Nerd Font Mono", { weight = "Bold" }),
+}
+
+config.font = wezterm.font("FiraCode Nerd Font Mono")
+config.font_size = 16
+
+config.enable_tab_bar = true
+config.hide_tab_bar_if_only_one_tab = false
+config.use_fancy_tab_bar = false
+
+config.color_scheme = scheme_for_appearance(appearance)
+config.colors = {
+	tab_bar = tab_bar_for_appearance(appearance),
+}
+config.inactive_pane_hsb = {
+	saturation = 0.0,
+	brightness = 0.5,
+}
+
+config.command_palette_bg_color = command_palette_colors.background
+config.command_palette_fg_color = command_palette_colors.foreground
+
+config.max_fps = 120
+
+if is_macos then
+	config.native_macos_fullscreen_mode = true
+	config.keys = {
+		{
+			key = "Enter",
+			mods = "CMD",
+			action = wezterm.action.ToggleFullScreen,
+		},
+	}
+end
+
+return config
