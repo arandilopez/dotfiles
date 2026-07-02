@@ -90,7 +90,7 @@ agent_deck.apply_to_config(config, {
 	},
 })
 
-config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
+config.window_decorations = "RESIZE"
 config.window_frame = {
 	font = wezterm.font("FiraCode Nerd Font Mono", { weight = "Bold" }),
 }
@@ -107,8 +107,7 @@ config.colors = {
 	tab_bar = tab_bar_for_appearance(appearance),
 }
 config.inactive_pane_hsb = {
-	saturation = 0.0,
-	brightness = 0.5,
+	brightness = 0.75,
 }
 
 config.command_palette_bg_color = command_palette_colors.background
@@ -123,6 +122,16 @@ if is_macos then
 			key = "Enter",
 			mods = "CMD",
 			action = wezterm.action.ToggleFullScreen,
+		},
+		{
+			key = "d",
+			mods = "CMD",
+			action = wezterm.action.SplitVertical { domain = "CurrentPaneDomain" },
+		},
+		{
+			key = "d",
+			mods = "CMD|SHIFT",
+			action = wezterm.action.SplitHorizontal { domain = "CurrentPaneDomain" },
 		},
 	}
 end
