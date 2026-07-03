@@ -120,9 +120,29 @@ link_file () {
 
   if [ "$skip" != "true" ]  # "false" or empty
   then
+    mkdir -p "$(dirname "$dst")"
     ln -s "$1" "$2"
     success "linked $1 to $2"
   fi
+}
+
+destination_for () {
+  local src=$1
+  local relative_path=
+
+  case "$src" in
+    "$DOTFILES_ROOT"/config/*)
+      relative_path=${src#"$DOTFILES_ROOT"/config/}
+      printf '%s/.config/%s' "$HOME" "${relative_path%.symlink}"
+      ;;
+    "$DOTFILES_ROOT"/home/*)
+      relative_path=${src#"$DOTFILES_ROOT"/home/}
+      printf '%s/.%s' "$HOME" "${relative_path%.symlink}"
+      ;;
+    *)
+      printf '%s/.%s' "$HOME" "$(basename "${src%.*}")"
+      ;;
+  esac
 }
 
 install_dotfiles () {
@@ -130,11 +150,11 @@ install_dotfiles () {
 
   local overwrite_all=false backup_all=false skip_all=false
 
-  for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' -not -path '*.git*')
+  while IFS= read -r src
   do
-    dst="$HOME/.$(basename "${src%.*}")"
+    dst=$(destination_for "$src")
     link_file "$src" "$dst"
-  done
+  done < <(find -H "$DOTFILES_ROOT" -maxdepth 4 -name '*.symlink' -not -path '*.git*')
 }
 
 setup_gitconfig
